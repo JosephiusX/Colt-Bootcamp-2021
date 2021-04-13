@@ -99,3 +99,93 @@ L381. Insert Many
     switched to db movieApp
     > db.movies.find()  
         // Result: the objects in the insertMany array in index.js
+
+L382. Finding With Mongoose
+    we will connect to mongo , we will keep the movie model , but we are going to comment out the rext
+    navigate to project folder
+    node : node REPL
+    .load index.js : running the js file ending with a CONNECTION OPEN!!!  message
+
+    // just running Movie.find() will result in more info than what we need, so we use the then method to log only the data
+    Movie.find({}).then(data => console.log(data))
+    Promise { <pending> }
+    > [
+    {
+        _id: 60760396fd4201420c7abf85,
+        title: 'Amadeus',
+        year: 1986,
+        score: 9.5,
+        rating: 'R',
+        __v: 0
+    },
+    {
+        _id: 60761452822fc55b7cdd11af,
+        title: 'Amelie',
+        year: 2001,
+        score: 8.3,
+        rating: 'R',
+        __v: 0
+    },
+    {
+        _id: 60761452822fc55b7cdd11b0,
+        title: 'Alien',
+        year: 1979,
+        score: 8.1,
+        rating: 'R',
+        __v: 0
+    },
+    {
+        _id: 60761452822fc55b7cdd11b1,
+        title: 'The Iron Giant',
+        year: 1999,
+        score: 7.5,
+        rating: 'PG',
+        __v: 0
+    },
+    {
+        _id: 60761452822fc55b7cdd11b2,
+        title: 'Stand By Me',
+        year: 1986,
+        score: 8.6,
+        rating: 'R',
+        __v: 0
+    },
+    {
+        _id: 60761452822fc55b7cdd11b3,
+        title: 'Moonrise Kingdom',
+        year: 2012,
+        score: 7.3,
+        rating: 'PG-13',
+        __v: 0
+    }
+    ]
+
+    // Find movie that is PG-13
+    > Movie.find({rating: 'PG-13'}).then(data => console.log(data))
+    Promise { <pending> }
+    > [
+    {
+        _id: 60761452822fc55b7cdd11b3,
+        title: 'Moonrise Kingdom',
+        year: 2012,
+        score: 7.3,
+        rating: 'PG-13',
+        __v: 0
+    }
+    ]
+
+    // find movie more recent than 2010
+    > Movie.find({year: {$gte: 2010}}).then(data => console.log(data))
+    Promise { <pending> }
+    > [
+    {
+        _id: 60761452822fc55b7cdd11b3,
+        title: 'Moonrise Kingdom',
+        year: 2012,
+        score: 7.3,
+        rating: 'PG-13',
+        __v: 0
+    }
+    ]
+
+    4:20
