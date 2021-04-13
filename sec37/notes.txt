@@ -1,0 +1,9 @@
+L378. What is mongoose
+
+    ODM - Object Data Mapper - Object document Mapper
+    it connects node.js and mongodb
+
+L379. Connecting Mongoose to Mongo
+    npm init -y : in a new folder to initalize package.json
+    npm i mongoose
+    touch index.js
