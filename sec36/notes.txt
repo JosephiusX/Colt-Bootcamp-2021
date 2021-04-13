@@ -1,0 +1,42 @@
+L372. Inserting with mongo
+    open mongodb using the shortcut we created
+    use animalshelter : moving to or creating animalshelter database
+
+    // inserting single object
+    db.dogs.insertOne({name:"charlie", age: 3, breed: "corgi", catFriendly:true }) : inserting object to db
+
+    {
+        "acknowledged" : true,
+        "insertedId" : ObjectId("6074e9a30876b93b4c7d7575")
+    } : acknodgment of insertion
+
+    show collections :dogs
+    
+    db.dogs.find() : returns the contents of dogs below as well as a object id
+    { "_id" : ObjectId("6074e9a30876b93b4c7d7575"), "name" : "charlie", "age" : 3, "breed" : "corgi", "catFriendly" : true }
+
+    // inserting 2 objects at once
+    db.dogs.insert([{name:"wyatt", breed: "Golden", age: 14, catFriendly:false}, {name: "Tonya", breed: "Chihuaua" , age: 17, catFriendly:true}])
+
+    // Conformation of objects added
+    BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 2,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+
+//next
+
+// make new cat db and insert a cat object
+db.cats.insert({name: 'Blue Steele', age: 6, dogFriendly: false, breed: 'Scottish fold'})
+
+// result : WriteResult({ "nInserted" : 1 })
+
+db.cats.find() : to check the cats db
+
+>
