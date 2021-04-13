@@ -95,3 +95,35 @@ L374. Updating With mongo
 
     // theres also replaceOne()
     // further on in the course we will abstract away from using mongo like this but its good to know
+
+L375 Deleting with mongo
+    // deleteOne()
+    > db.cats.deleteOne({name: 'Blue Steele'})
+    { "acknowledged" : true, "deletedCount" : 1 }
+    > db.cats.find()
+    >  // nothing is returned because we sucessfully deleted the only object in the cat db
+
+    // deleteMany()
+    > db.dogs.find()
+    { "_id" : ObjectId("6074e9a30876b93b4c7d7575"), "name" : "charlie", "age" : 5, "breed" : "lab", "catFriendly" : true, "color" : "chocolate", "isAvailable" : false }
+    { "_id" : ObjectId("6074f76a4b1fa5cef141a493"), "name" : "wyatt", "breed" : "Golden", "age" : 14, "catFriendly" : false }
+    { "_id" : ObjectId("6074f76a4b1fa5cef141a494"), "name" : "Tonya", "breed" : "Chihuaua", "age" : 17, "catFriendly" : true, "isAvailable" : false }
+    { "_id" : ObjectId("6074ffe54b1fa5cef141a495"), "name" : "wyatt", "breed" : "Golden", "age" : 14, "catFriendly" : false }
+    { "_id" : ObjectId("6074ffe54b1fa5cef141a496"), "name" : "Tonya", "breed" : "Chihuaua", "age" : 17, "catFriendly" : true, "isAvailable" : false }
+   
+    > db.dogs.deleteMany({isAvailable: true}) : deleting all objects in db.dogs with isAvailable set to true
+    { "acknowledged" : true, "deletedCount" : 0 }
+    > db.dogs.deleteMany({isAvailable: false})
+    { "acknowledged" : true, "deletedCount" : 3 }
+    > db.dogs.find()
+    { "_id" : ObjectId("6074f76a4b1fa5cef141a493"), "name" : "wyatt", "breed" : "Golden", "age" : 14, "catFriendly" : false }
+    { "_id" : ObjectId("6074ffe54b1fa5cef141a495"), "name" : "wyatt", "breed" : "Golden", "age" : 14, "catFriendly" : false }
+
+    // deleteMany() : delete everything in dogs db
+    > db.dogs.find()
+    { "_id" : ObjectId("6074f76a4b1fa5cef141a493"), "name" : "wyatt", "breed" : "Golden", "age" : 14, "catFriendly" : false }
+    { "_id" : ObjectId("6074ffe54b1fa5cef141a495"), "name" : "wyatt", "breed" : "Golden", "age" : 14, "catFriendly" : false }
+    > db.dogs.deleteMany({})
+    { "acknowledged" : true, "deletedCount" : 2 }
+    > db.dogs.find()
+    >
