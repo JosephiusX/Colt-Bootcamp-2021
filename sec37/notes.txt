@@ -7,3 +7,85 @@ L379. Connecting Mongoose to Mongo
     npm init -y : in a new folder to initalize package.json
     npm i mongoose
     touch index.js
+    // open mongodb and leave it open in the background
+
+    // contents of index.js
+    const mongoose = require('mongoose'); // require mongoose after installing it on npm
+    mongoose.connect('mongodb://localhost:27017/movieApp', {useNewUrlParser: true, useUnifiedTopology: true}) // where to find mongodb locally / database (if it dosent exist one will be created)
+        .then(() => { // try
+            console.log("CONNECTION OPEN!!!")
+        })
+        .catch(err => { // catch if error
+            console.log("OH NO ERROR !!!");
+            console.log(err);
+        })
+        
+    // in the console in this folder run:
+    node index.js
+
+L380. Our First Mongoose Model
+    > node
+    > .load index.js
+    const mongoose = require('mongoose'); // require mongoose after installing 
+    it on npm
+    mongoose.connect('mongodb://localhost:27017/movieApp', {useNewUrlParser: true, useUnifiedTopology: true}) // where to find mongodb locally / database 
+    (if it dosent exist one will be created)
+    .then(() => { // try
+        console.log("CONNECTION OPEN!!!")
+        })
+        .catch(err => { // catch if error
+            console.log("OH NO ERROR !!!");
+                console.log(err);
+                })
+
+                // Our first mongoose model
+
+                // schemas
+                const movieSchema = new mongoose.Schema({
+                    title: String,
+                        year: Number,
+                            score: Number,
+                                rating: String
+                                })
+
+                                // take the schema and tell mongoose to make a 
+    model using the schema
+                                const Movie = mongoose.model('Movie', movieSchema) // pass in name of model and the schema, Movie createw a collection 'movies' in mongoose , save it to a variable and save it to a variable Movie  
+                                const amadeus = new Movie ({title: 'Amadeus', year: 1986, score: 9.2, rating: 'R'})
+    Promise { <pending> }
+    > CONNECTION OPEN!!!
+
+    >
+    >
+    >
+    >
+    >
+    >
+    > amadeus
+    {
+    _id: 60760396fd4201420c7abf85,
+    title: 'Amadeus',
+    year: 1986,
+    score: 9.2,
+    rating: 'R'
+    }
+    
+    // up until this point nothing has been saved to the db
+
+    // Saving to mongo database
+    > amadeus.save()
+    Promise { <pending> }
+
+    // in our mongodb shell :
+    > db.movies.find()
+    { "_id" : ObjectId("60760396fd4201420c7abf85"), "title" : "Amadeus", "year" : 1986, "score" : 9.2, "rating" : "R", "__v" : 0 }
+
+    // back to the node powershell:
+        > amadeus.score = 9.5
+        9.5 // changing it in the js only
+        > amadeus.save() // saving the change to database
+        Promise { <pending> }
+    // checking mongodb shell:
+        > db.movies.find() // checking to see that we saved changes on the database side
+{ "_id" : ObjectId("60760396fd4201420c7abf85"), "title" : "Amadeus", "year" : 1986, "score" : 9.5, "rating" : "R", "__v" : 0 }
+
