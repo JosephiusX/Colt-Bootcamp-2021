@@ -89,3 +89,13 @@ L380. Our First Mongoose Model
         > db.movies.find() // checking to see that we saved changes on the database side
 { "_id" : ObjectId("60760396fd4201420c7abf85"), "title" : "Amadeus", "year" : 1986, "score" : 9.5, "rating" : "R", "__v" : 0 }
 
+L381. Insert Many
+    // after writing the javascript in the indes file run:
+    node index.js : confirm that Insert Many is working
+
+    // to check the database make sure im in the moviesApp database and view the contents
+    open mongodb powershell
+    > use movieApp
+    switched to db movieApp
+    > db.movies.find()  
+        // Result: the objects in the insertMany array in index.js
