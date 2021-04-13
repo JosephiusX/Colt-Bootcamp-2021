@@ -3,7 +3,7 @@ L372. Inserting with mongo
     use animalshelter : moving to or creating animalshelter database
 
     // inserting single object
-    db.dogs.insertOne({name:"charlie", age: 3, breed: "corgi", catFriendly:true }) : inserting object to db
+   > db.dogs.insertOne({name:"charlie", age: 3, breed: "corgi", catFriendly:true }) : inserting object to db
 
     {
         "acknowledged" : true,
@@ -12,11 +12,11 @@ L372. Inserting with mongo
 
     show collections :dogs
     
-    db.dogs.find() : returns the contents of dogs below as well as a object id
+   > db.dogs.find() : returns the contents of dogs below as well as a object id
     { "_id" : ObjectId("6074e9a30876b93b4c7d7575"), "name" : "charlie", "age" : 3, "breed" : "corgi", "catFriendly" : true }
 
     // inserting 2 objects at once
-    db.dogs.insert([{name:"wyatt", breed: "Golden", age: 14, catFriendly:false}, {name: "Tonya", breed: "Chihuaua" , age: 17, catFriendly:true}])
+   > db.dogs.insert([{name:"wyatt", breed: "Golden", age: 14, catFriendly:false}, {name: "Tonya", breed: "Chihuaua" , age: 17, catFriendly:true}])
 
     // Conformation of objects added
     BulkWriteResult({
@@ -33,31 +33,65 @@ L372. Inserting with mongo
     //next
 
     // make new cat db and insert a cat object
-    db.cats.insert({name: 'Blue Steele', age: 6, dogFriendly: false, breed: 'Scottish fold'})
+   > db.cats.insert({name: 'Blue Steele', age: 6, dogFriendly: false, breed: 'Scottish fold'})
 
     // result : WriteResult({ "nInserted" : 1 })
 
-    db.cats.find() : to check the cats db
+   > db.cats.find() : to check the cats db
 
-    >
+    
 
 L373. Finding with mongo
     // find all instances if any
-    db.dogs.find({breed: 'corgi'}) : find in db dogs a breed: 'corgi'
+   > db.dogs.find({breed: 'corgi'}) : find in db dogs a breed: 'corgi'
         //result :
          { "_id" : ObjectId("6074e9a30876b93b4c7d7575"), "name" : "charlie", "age" : 3, "breed" : "corgi", "catFriendly" : true }
 
-    db.dogs.find({catFriendly: true}) : in db dogs find objects with catfriendly set to true
+   > db.dogs.find({catFriendly: true}) : in db dogs find objects with catfriendly set to true
 
     // find one instance
-    db.dogs.findOne({catFriendly: true})
+   > db.dogs.findOne({catFriendly: true})
 
     // finding with multiple peramiters
-    db.dogs.find({catFriendly: true, age: 17})
+   > db.dogs.find({catFriendly: true, age: 17})
 
     // find eberything in db
-    db.cats.find({})
+   > db.cats.find({})
 
 L374. Updating With mongo
-    
+   > db.dogs.find() : show us dog db objects
+   > db.dogs.updateOne({name: 'charlie'}, {$set: {age:4, breed: 'Lab}}) // in db dogs we are updating one objects age to 4 and its breed to lab, it is case sensitive
+        // returns:
+            { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+    > db.dogs.find({name: 'charlie'})
+    { "_id" : ObjectId("6074e9a30876b93b4c7d7575"), "name" : "charlie", "age" : 5, "breed" : "lab", "catFriendly" : true }
 
+    // here we add a property color
+    > db.dogs.updateOne({name: 'charlie'}, {$set: {color: 'chocolate'}})
+    { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+    > db.dogs.find({name: 'charlie'})
+    { "_id" : ObjectId("6074e9a30876b93b4c7d7575"), "name" : "charlie", "age" : 5, "breed" : "lab", "catFriendly" : true, "color" : "chocolate" }
+
+    // updateMany
+    > db.dogs.updateMany({catFriendly: true}, {$set: {isAvailable: false}})
+    { "acknowledged" : true, "matchedCount" : 3, "modifiedCount" : 3 }
+
+    // view results
+    db.dogs.find()
+
+    //something about adding a date 
+    > db.cats.updateOne({age: 6}, {$set: {age:7}, $currentDate:{lastChanged : true} })
+    { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+    >
+    > db.cats.findOne()
+    {
+            "_id" : ObjectId("607500e4b6b94b8b7be13824"),
+            "name" : "Blue Steele",
+            "age" : 7,
+            "dogFriendly" : false,
+            "breed" : "Scottish fold",
+            "lastChanged" : ISODate("2021-04-13T17:49:43.805Z")
+    }
+
+    // theres also replaceOne()
+    // further on in the course we will abstract away from using mongo like this but its good to know
