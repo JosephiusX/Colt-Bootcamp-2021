@@ -107,7 +107,7 @@ L382. Finding With Mongoose
     .load index.js : running the js file ending with a CONNECTION OPEN!!!  message
 
     // just running Movie.find() will result in more info than what we need, so we use the then method to log only the data
-    Movie.find({}).then(data => console.log(data))
+    Movie.find({}).then(data => console.log(data)) // this filters out relivant data like with promises
     Promise { <pending> }
     > [
     {
@@ -188,4 +188,15 @@ L382. Finding With Mongoose
     }
     ]
 
-    4:20
+    >Movie.find({rating: 'PG-13'}).then(data => console.log(data))
+            // returns just the ones with the PG-13 ratings
+
+    we can also querry like this
+        > Movie.find({year: {$gte: 2010}}).then(data => console.log(data))
+            // returns movies newer than or equal to year 2010
+        > Movie.find({year: {$lt: 1990}}).then(data => console.log(data))
+            // returns 1990 and older
+        > Movie.findOne({}).then(m => console.log(m))
+            // finds one instance (first one)
+        > Movie.find({_id: '60760396fd4201420c7abf85'}).then(m => console.log(m))
+            // returns item in Movie db with matching id
