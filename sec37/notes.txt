@@ -200,3 +200,52 @@ L382. Finding With Mongoose
             // finds one instance (first one)
         > Movie.find({_id: '60760396fd4201420c7abf85'}).then(m => console.log(m))
             // returns item in Movie db with matching id
+
+L383. Updating in mongoose
+    in mongo shell check to see what year amadeus is set to
+        > db.movies.find({title: 'Amadeus'})
+        { "_id" : ObjectId("60760396fd4201420c7abf85"), "title" : "Amadeus", "year" : 1986, "score" : 9.5, "rating" : "R", "__v" : 0 }
+
+    updating the date to 1984 in terminal using updateOne
+        > Movie.updateOne({title: 'Amadeus'}, {year: 1984}).then(res => console.log(res))
+        > { n: 1, nModified: 1, ok: 1 }
+
+    check in the mongo shell to see that it was actually changed
+        > db.movies.find({title: 'Amadeus'})
+
+    using updateManu in node terminal
+        > Movie.updateMany({title: {$in: ['Amadeus', 'Stand By Me']}}, {score: 10}).then(res => console.log(res))
+            //returns:
+            Promise { <pending> }
+            > { n: 4, nModified: 4, ok: 1 }
+
+    In the mongo shell to see if the changes have been made to the scores
+            > db.movies.find({title: {$in: ['Amadeus', 'Stand By Me']}})
+                { "_id" : ObjectId("60760396fd4201420c7abf85"), "title" : "Amadeus", "year" : 1984, "score" : 10, "rating" : "R", "__v" : 0 }
+                { "_id" : ObjectId("60761452822fc55b7cdd11b2"), "title" : "Stand By Me", "year" : 1986, "score" : 10, "rating" : "R", "__v" : 0 }
+                { "_id" : ObjectId("60ac44b2be9a0444c80216c0"), "title" : "Stand By Me", "year" : 1986, "score" : 10, "rating" : "R", "__v" : 0 }
+                { "_id" : ObjectId("60ac4823e68f405dac0ed38b"), "title" : "Stand By Me", "year" : 1986, "score" : 10, "rating" : "R", "__v" : 0 }
+
+    > Movie.findOneAndUpdate({title: 'The Iron Giant'}, {score: 7.0}).then(m => console.log(m))
+        // returns: // supposidly it returns the old version
+            Promise { <pending> }
+                > {
+                _id: 60761452822fc55b7cdd11b1,
+                title: 'The Iron Giant',
+                year: 1999,
+                score: 7,
+                rating: 'PG',
+                __v: 0
+                }
+
+     do the same but return the modified function with a diffrent score this time
+        > Movie.findOneAndUpdate({title: 'The Iron Giant'}, {score: 7.8}, {new: true}).then(m => console.log(m))
+        // returns modified version :
+            {
+            _id: 60761452822fc55b7cdd11b1,
+            title: 'The Iron Giant',
+            year: 1999,
+            score: 7.8,
+            rating: 'PG',
+            __v: 0
+            }
