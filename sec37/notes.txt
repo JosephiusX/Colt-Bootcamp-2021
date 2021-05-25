@@ -268,6 +268,17 @@ L383. Updating in mongoose
             check in mongo shell if it works:
                 in mongo shell : use movieApp
                 db.movies.find()
-                
+
     // here I return the result after deleting a single selection
         > Movie.findOneAndDelete({title:'Alien'}).then(m => console.log(m))
+
+385. Mongoose Schema validations
+    in sec37 dir touch product.js
+    copy over connection logic from index.js
+    change line 2 from movie app to shopApp
+    open  mongodb and leave it open
+    in product.js containing dir run: node
+                                then: .load product.js
+    mongoShell> show dbs : to verify shopApp db is created
+    use shopApp : to switch to the db
+    db.products.find()
