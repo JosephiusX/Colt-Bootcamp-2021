@@ -412,4 +412,9 @@ L383. Updating in mongoose
                     console.log(err);
                 })
 
-        
+389. Model Instance methods
+
+    > node
+    >.load product.json
+        const pr = new Product({name: 'bike bag', price: 10})
+
