@@ -249,3 +249,25 @@ L383. Updating in mongoose
             rating: 'PG',
             __v: 0
             }
+
+384. Deleting With Mongoose
+
+        help in the mongo shell can show me some commands
+
+    //delete every instance
+        >Movie.remove({title: 'Amelie'}).then(msg => console.log(msg))
+            // returns:
+                Promise { <pending> }
+                > (node:12276) DeprecationWarning: collection.remove is deprecated. Use deleteOne, deleteMany, or bulkWrite instead.
+                { n: 4, ok: 1, deletedCount: 4 }
+
+        > Movie.deleteMany({year: {$gte: 1999}}).then(msg => console.log(msg))
+            returns:
+                Promise { <pending> }
+                > { n: 6, ok: 1, deletedCount: 6 }
+            check in mongo shell if it works:
+                in mongo shell : use movieApp
+                db.movies.find()
+                
+    // here I return the result after deleting a single selection
+        > Movie.findOneAndDelete({title:'Alien'}).then(m => console.log(m))
