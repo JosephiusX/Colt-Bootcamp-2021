@@ -344,3 +344,44 @@ L383. Updating in mongoose
             __v: 0
             }
 
+387. Vaildating Mongoose updates
+
+        const bike = new Product({ name: 'Tire Pump', price:19.50, categories: ['Cycling'] })
+
+        change the save logic to find and update:
+            Product.findOneAndUpdate({ name: 'Tire Pump'}, {price: 100}, {new:true})
+                .then(data => {
+                    console.log("IT WORKED")
+                    console.log(data);
+                })
+                .catch(err => {
+                    console.log("OH NO ERROR!")
+                    console.log(err);
+                })
+            // result:
+            {
+            qty: { online: 0, instore: 0 },
+            onSale: false,
+            categories: [ 'Cycling' ],
+            _id: 60ad3a248653330d207b2b76,
+            name: 'Tire Pump',
+            price: 100,
+            __v: 0
+            }
+
+        Run it again but with a negative number as the price:
+            Product.findOneAndUpdate({ name: 'Tire Pump'}, {price: -19.99}, {new:true})
+                results the same as above: thenumber validator did nothing
+
+        run it like this for validators to work:
+            Product.findOneAndUpdate({ name: 'Tire Pump'}, {price: 9.99}, {new:true, runValidators: true})
+                result: we get the validation error that we are looking for
+                    OH NO ERROR!
+                            Error: Validation failed: price: Path `price` (-9.99) is less than minimum allowed value (0).
+                                at ValidationError.inspect (C:\Users\gramk\OneDrive\Desktop\Colt-Bootcamp-2021\sec37\node_modules\mongoose\lib\error\validation.js:47:26)
+                                    ..............................................
+                            _message: 'Validation failed'
+                            }
+                            CONNECTION OPEN!!!
+
+
