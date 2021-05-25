@@ -282,3 +282,65 @@ L383. Updating in mongoose
     mongoShell> show dbs : to verify shopApp db is created
     use shopApp : to switch to the db
     db.products.find()
+
+    * start up shopApp database
+
+386. Additional Schema Constraints
+
+    adding to schema in product.js:
+        onSale: {
+        type: Boolean,
+        default: false
+    }
+    // next change the line that makes a new product:
+        const Product = mongoose.model('Product',productSchema);
+
+    // see in mongo shell if new object was created
+        > db.products.find()
+         // we can see that nothing was added because it did not pass the string length validator
+
+    // we can add constraint to numbers schema: min: 0
+    // then change the new bike price to a - to see what happens: it runs an error and dosent save because of the number validator we set
+    
+    // in the schema we add : categories : [String]
+    then we change the new bike product
+         const bike = new Product({ name: 'Bike Helmet', price:19.50, categories: ['Cycling', 'Safety'] })
+    restart product.js in node and check in db to see that the new bike obj has been saved
+
+    // if i do it again and add a number to categories like so :
+        const bike = new Product({ name: 'Bike Helmet', price:19.50, categories: ['Cycling', 'Safety', 1234] })
+            // it works but it changes the number to a string due to the validation we set:
+                {
+                onSale: false,
+                categories: [ 'Cycling', 'Safety', '1234' ],
+                _id: 60ad338d19725952c45a6ace,
+                name: 'Bike Helmet',
+                price: 19.5,
+                __v: 0
+                }
+
+    // for categories schema:
+         categories: [String],
+                qty: {
+                    online: {
+                        type: Number,
+                        default: 0
+                    },
+                    instore: {
+                        type: Number,
+                        default: 0
+                    }
+                }
+
+    // re run project.js 
+        result: we can see the default qty's
+            {
+            qty: { online: 0, instore: 0 },
+            onSale: false,
+            categories: [ 'Cycling', 'Safety', '1234' ],
+            _id: 60ad35ccf0ea9031e857a1ba,
+            name: 'Bike Helmet',
+            price: 19.5,
+            __v: 0
+            }
+
