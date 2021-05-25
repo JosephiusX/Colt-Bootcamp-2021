@@ -55,12 +55,12 @@ productSchema.methods.addCategory = function (newCat) {
     return this.save;
 }
 
-const Product = mongoose.model('Product',productSchema);
+const Product = mongoose.model('Product', productSchema);
 
 const findProduct = async () => {
-    const foundProduct = await Product.findOne({ name: 'Mountain bike'})
+    const foundProduct = await Product.findOne({ name: 'Mountain bike'});
     console.log(foundProduct)
-    await foundProduct.togleOnsale();
+    await foundProduct.toggleOnSale();
     console.log(foundProduct)
     await foundProduct.addCategory('Outdoors')
     console.log(foundProduct)
