@@ -11,7 +11,7 @@ L379. Connecting Mongoose to Mongo
 
     // contents of index.js
     const mongoose = require('mongoose'); // require mongoose after installing it on npm
-    mongoose.connect('mongodb://localhost:27017/movieApp', {useNewUrlParser: true, useUnifiedTopology: true}) // where to find mongodb locally / database (if it dosent exist one will be created)
+    mongoose.connect('mongodb://localhost:27017/movieApp', {useNewUrlParser: true, useUnifiedTopology: true}) 
         .then(() => { // try
             console.log("CONNECTION OPEN!!!")
         })
@@ -101,7 +101,7 @@ L381. Insert Many
         // Result: the objects in the insertMany array in index.js
 
 L382. Finding With Mongoose
-    we will connect to mongo , we will keep the movie model , but we are going to comment out the rext
+    we will connect to mongo , we will keep the movie model , but we are going to comment out the next
     navigate to project folder
     node : node REPL
     .load index.js : running the js file ending with a CONNECTION OPEN!!!  message
