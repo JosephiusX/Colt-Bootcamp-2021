@@ -384,4 +384,32 @@ L383. Updating in mongoose
                             }
                             CONNECTION OPEN!!!
 
+388. Mongoose Validation Errors
 
+        Edit price Schema: + change price to a positive to pass prev validation constraints
+             price: {
+                        type: Number,
+                        required: true,
+                        min: [0, 'Price must be positive!'] // here the first is the default and the second is the message
+                    },
+                        run results in error : Price must be positive!
+
+        add size schema:
+                size: {
+                        type: String,
+                        enum: ['S', 'M', 'L']
+                      }
+
+        this time make new bike obj again :
+            const bike = new Product({ name: 'Cycling Jersey', price:28.50, categories: ['Cycling'], size: 'XS' })
+            bike.save()
+                .then(data => {
+                    console.log("IT WORKED")
+                    console.log(data);
+                })
+                .catch(err => {
+                    console.log("OH NO ERROR!")
+                    console.log(err);
+                })
+
+        
