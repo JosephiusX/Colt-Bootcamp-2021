@@ -1,0 +1,4 @@
+394. Express + Mongoose Bsic setup
+
+    npm init -y
+    npm i express ejs mongoose
