@@ -416,5 +416,5 @@ L383. Updating in mongoose
 
     > node
     >.load product.json
-        const pr = new Product({name: 'bike bag', price: 10})
+        const pro = new Product({name: 'bike bag', price: 10})
 
