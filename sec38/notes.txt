@@ -48,3 +48,12 @@
 397. Product Details
 
         in views dir product folder make show.ejs
+
+398. Creating Products
+
+    make /products/new get route
+     in views dir in product folder make new.ejs
+
+     **************** seems to be working so far
+     ?????????? no clue how
+     
