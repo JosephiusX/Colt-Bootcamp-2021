@@ -2,3 +2,40 @@
 
     npm init -y
     npm i express ejs mongoose
+
+395. Creating Our Model
+
+    in project dir : mkdir models
+
+    touch models/product.js
+
+    in product.js, require mongoose
+    build product schema for name price and, category
+    compile model
+    export
+
+    in index.js change db to farmStand
+    require ./models/product
+
+    touch seeds.js
+    in seeds.js require mongoose
+    copy mongoose connection logic
+    require product
+
+    to see it things are working so far 
+        > node seeds.js
+            returns: 
+                MONGO CONNECTION OPEN!!!
+                    {
+                    _id: 60ae7b44ef709f21c09b7b67,
+                    name: 'Ruby Grapefruit',
+                    price: 1.99,
+                    __v: 0
+                    }
+
+        mongo> show dbs 
+        mongo> use farmStand
+        mongo> show collections
+        mongo> db.products.find()
+            returns :
+                { "_id" : ObjectId("60ae7b44ef709f21c09b7b67"), "name" : "Ruby Grapefruit", "price" : 1.99, "__v" : 0 }
