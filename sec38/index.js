@@ -19,10 +19,13 @@ app.set('view engine', 'ejs');
 
 app.get('/products', async (req, res) => { // rought
     const products = await Product.find({})
-    console.log(products)
-    // res.send('ALL PRODUCTS WILL BE HERE')
     res.render('products/index', { products })
+})
 
+app.get('/products/:id', async (req, res) => {
+    const { id } =  req.params;
+    const product = await Product.findById(id)
+    res.render('products/show', { product })
 })
 
 app.listen(3000, () => {

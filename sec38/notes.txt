@@ -44,3 +44,7 @@
 
         in views dir make a products folder
         in products folder make index.ejs file
+
+397. Product Details
+
+        in views dir product folder make show.ejs
