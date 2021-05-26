@@ -56,4 +56,9 @@
 
      **************** seems to be working so far
      ?????????? no clue how
-     
+
+399.  Updating Products
+
+        make edit.ejs in Views/products
+
+        2:40 it works at this point, taking break
