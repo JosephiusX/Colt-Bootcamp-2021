@@ -62,3 +62,7 @@
         make edit.ejs in Views/products
 
         2:40 it works at this point, taking break
+
+        install method-override
+
+       ******************** category isint showing up

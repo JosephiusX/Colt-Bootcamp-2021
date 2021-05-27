@@ -15,6 +15,7 @@ mongoose.connect('mongodb://localhost:27017/farmStand', {useNewUrlParser: true, 
     console.log(err);
 })
 
+//middlewhere
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
