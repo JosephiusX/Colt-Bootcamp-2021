@@ -69,4 +69,21 @@
            reason: 
             i misspelled category in the product schema in product.js file
 
-400. 
+400. Tangent On Category Selector
+         
+         in edit.ejs i placed conditional statements on the opetion selectors
+
+         in index.js make a array and assign it the value of categories
+
+         in new.ejs we add options dynamically like so:
+
+            <% for(let category of categories) { %>
+                <option value='<%=category %>'><%=category %></option>
+            <% } %>
+
+        add same logic to edit.ejs but with turnary added in:
+            <% for(let category of categories) { %>
+                <option value='<%=category %>' <%= product.category === category ? 'selected': '' %> ><%=category %></option>
+            <% } %>
+
+401. Deleting Products
