@@ -7,26 +7,33 @@ const methodOverride = require('method-override')
 const Product = require('./models/product');
 
 mongoose.connect('mongodb://localhost:27017/farmStand', {useNewUrlParser: true, useUnifiedTopology: true}) // default mongo port, copy from  where to find mongodb locally / database (if it dosent exist one will be created)
-.then(() => { // try
-    console.log("MONGO CONNECTION OPEN!!!")
-})
-.catch(err => { // catch if error
-    console.log("OH NO  MONGO ERROR !!!");
-    console.log(err);
-})
+    .then(() => { // try
+        console.log("MONGO CONNECTION OPEN!!!")
+    })
+    .catch(err => { // catch if error
+        console.log("OH NO  MONGO ERROR !!!");
+        console.log(err);
+    })
 
-//middlewhere
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// middlewhere
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
-const categories = ['fruits', 'vegetable', 'dairy', 'fungi'];
-app.get('/products', async (req, res) => { // rought
-    const products = await Product.find({})
-    res.render('products/index', { products })
+const categories = ['fruit', 'vegetable', 'dairy'];
+
+app.get('/products', async (req, res) => {
+    const { category } = req.query;
+    if (category) {
+        const products = await Product.find({ category })
+        res.render('products/index', { products, category })
+    } else {
+        const products = await Product.find({})
+        res.render('products/index', { products, category: 'All' })
+    }
 })
 
 app.get('/products/new', (req, res) => {
@@ -36,7 +43,7 @@ app.get('/products/new', (req, res) => {
 app.post('/products', async (req, res) => {
     const newProduct = new Product(req.body)
     await newProduct.save()
-    console.log(newProduct)
+
     res.redirect(`/products/${newProduct._id}`)
 })
 
@@ -56,6 +63,12 @@ app.put('/products/:id', async (req, res) => {
     const { id } = req.params;
     const product = await Product.findByIdAndUpdate(id, req.body, { runValidators: true, new: true });
     res.redirect(`/products/${product._id}`);
+})
+
+app.delete('/products/:id', async (req, res) => {
+    const { id } = req.params;
+    const deleteProduct = await Product.findByIdAndDelete(id)
+    res.redirect('/products')
 })
 
 app.listen(3000, () => {
