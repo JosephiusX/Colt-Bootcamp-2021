@@ -66,3 +66,7 @@
         install method-override
 
        ******************** category isint showing up
+           reason: 
+            i misspelled category in the product schema in product.js file
+
+400. 

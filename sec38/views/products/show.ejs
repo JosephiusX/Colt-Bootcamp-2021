@@ -7,11 +7,12 @@
     <title><%= product.name %></title>
 </head>
 <body>
-    <h1>Name: <%= product.name%></h1>
+    <h1><%= product.name%></h1>
     <ul>
         <li>Price: $<%= product.price%></li>
         <li>Categoty: <%= product.category%></li>
     </ul>
+
     <a href="/products">All Products</a>
     <a href="/products/<%=product._id%>/edit">Edit Products</a>
 </body>
