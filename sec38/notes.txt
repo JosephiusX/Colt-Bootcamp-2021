@@ -87,3 +87,6 @@
             <% } %>
 
 401. Deleting Products
+
+        to test:
+            http://localhost:3000/products?category=fruit
