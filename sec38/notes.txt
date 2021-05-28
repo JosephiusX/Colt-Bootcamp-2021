@@ -90,3 +90,12 @@
 
         to test:
             http://localhost:3000/products?category=fruit
+
+
+sec39 405 Creating Basic Exprss App
+    in empty folder:
+         npm init -y
+    install express mongoose and ejs:
+        npm i express mongoose ejs
+    make app.js:
+        touch app.js

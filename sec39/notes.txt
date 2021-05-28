@@ -1,6 +1,0 @@
-L405. Creating basic express app
-creating basic express web app
-
-npm i -g nodemon
-npm init -y
-npm i mongoose express 
