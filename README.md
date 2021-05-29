@@ -122,4 +122,12 @@ sec39 405 Creating Basic Exprss App
         then
             mongo> db.campgrounds.find()
 
+408. Campground Index
+
+        assuming mongo db is already open
+        to test project 
+        in project dir:
+        nodemon app.js 
+
+
 
