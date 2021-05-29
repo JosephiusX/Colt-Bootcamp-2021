@@ -13,7 +13,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
     console.log('Database connected');
-})
+});
 
 const app  = express();
 
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-app.get('/makecampground', (req, res) => {
+app.get('/makecampground', async (req, res) => {
     const camp = new Campground({ title: 'My Backyard', description: 'cheap camping!'});
     await camp.save();
     res.send(camp)
