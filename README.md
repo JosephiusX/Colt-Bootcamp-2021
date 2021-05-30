@@ -1,10 +1,13 @@
 # Colt-Bootcamp-2021
-sec33 330. Introducing Express
+sec33 
 
-        express is a fast unopinionated, minimalist web framework for Node.js  It helps us build web apps
+    330. Introducing Express
 
-        its just an npm package which comes with a bunch of methods and optional plugins that we can use to build web applications and API's
+            express is a fast unopinionated, minimalist web framework for Node.js  It helps us build web apps
 
+            its just an npm package which comes with a bunch of methods and optional plugins that we can use to build web applications and API's
+
+    331. Our very first express app
 
 Sec36 L372. Inserting with mongo
 
@@ -140,7 +143,9 @@ Sec36 L372. Inserting with mongo
         L376. Additional Mongo Operators
 
             // circle back point
-sec 37 L378. What is mongoose
+sec 37 
+    
+    L378. What is mongoose
         
             ODM - Object Data Mapper - Object document Mapper
             it connects node.js and mongodb
