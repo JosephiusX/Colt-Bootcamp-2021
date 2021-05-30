@@ -15,6 +15,14 @@ sec33
             npm i express
             touch index.js
 
+        332. The Request and Response Objects
+
+            req and res are http but express takes them and turns them into objects
+
+            in the app.use body:
+                console.dir(req) // view the req Obj with nodemon 
+                console.dir(res) // view res Obj
+
 
 
 
