@@ -1,13 +1,27 @@
 # Colt-Bootcamp-2021
 sec33 
 
-    330. Introducing Express
+        330. Introducing Express
 
-            express is a fast unopinionated, minimalist web framework for Node.js  It helps us build web apps
+                express is a fast unopinionated, minimalist web framework for Node.js  It helps us build web apps
 
-            its just an npm package which comes with a bunch of methods and optional plugins that we can use to build web applications and API's
+                its just an npm package which comes with a bunch of methods and optional plugins that we can use to build web applications and API's
 
-    331. Our very first express app
+        331. Our very first express app
+
+            mkdir FirstApp
+            cd FirstApp
+            npm init -y
+            npm i express
+            touch index.js
+
+
+
+
+
+
+
+
 
 Sec36 L372. Inserting with mongo
 
