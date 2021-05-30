@@ -129,5 +129,13 @@ sec39 405 Creating Basic Exprss App
         in project dir:
         nodemon app.js 
 
+409. Campground Show
+
+    check route:
+        http://localhost:3000/campgrounds/askjd
+            returns: CAMPGROUND SHOW
+
+    final check : click on the ca
+
 
 
