@@ -5,7 +5,8 @@ const app = express(); // exicute express
 app.use((req, res) => { // runs on incoming request, hass access to req and res objects
     console.log("WE GOT A NEW REQUEST!!")
     // res.send("HELLO, WE GOT YOUR REQUEST! THIS IS A RESPONSE!!!")
-    res.send({color: 'red'}) // renders object to localhost:3000
+    // res.send({color: 'red'}) // renders object to localhost:3000
+    res.send('<h1> This is my webpage!</h1>')
 })
 
 app.listen(3000, () => { // listen for a port

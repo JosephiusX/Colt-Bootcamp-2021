@@ -23,6 +23,12 @@ sec33
                 console.dir(req) // view the req Obj with nodemon 
                 console.dir(res) // view res Obj
 
+            the method res.send() method is versatile:
+                res.send('<h1>This is my webpage </h1>)
+                // res.send("HELLO, WE GOT YOUR REQUEST! THIS IS A RESPONSE!!!")
+                // res.send({color: 'red'}) // renders object to localhost:3000
+                res.send('<h1> This is my webpage!</h1>')
+
 
 
 
