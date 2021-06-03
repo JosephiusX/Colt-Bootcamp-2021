@@ -28,6 +28,14 @@ app.get('/dogs', (req, res) => {// localhost:3000/dogs
     res.send('WOOF!') // renders WOOF
 })
 
+app.get('/search', (req, res) => { // localhost:3000/search?q=dogs&colors=red
+    const { q } = req.query; // assigning q value of req.query 
+    if(!q) { // if there is no query string
+        res.send(`NOTHING FOUND IF NOTHING SEARCHED`)
+    }
+    res.send(`<h1>Search results for: ${q}</h1>`) 
+})
+
 app.get('*', (req, res) => { // setting message for un recegonized paths (Localhost:3000/alidifjawdu) , has to be last
     res.send(`I don't know that path!`)
 }) // routes are matched in order, this route only works at the end

@@ -68,6 +68,19 @@ sec33
                         rendered:
                             Viewing Post ID: 289173 on the gardening subreddit
 
+        335. working with Query Strings
+
+            app.get('/search', (req, res) => {
+                const { q } = req.query;
+                if(!q) { 
+                    res.send(`NOTHING FOUND IF NOTHING SEARCHED`)
+                }
+                res.send(`<h1>Search results for: ${q}</h1>`) 
+            })
+
+            run in postman to see complete results:
+                http://localhost:3000/search?q=dogs&colors=red
+
 
 
 
