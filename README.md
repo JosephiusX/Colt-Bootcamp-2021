@@ -114,13 +114,30 @@ sec34 L.339. Configuring Express for EJS
 
                     app.set('views', path.join(__dirname, '/views'))
                 
+        341. EJS Interpolation Syntax
+
+                TAGS:
+                    <% 'Scriptlet' tag, for control-flow, no output
+                    <%_ 'Whitespace Slurping' Scriptlet tag, strips all whitespace before it
+                    <%= Outputs the value into the template (escaped)
+                    <%- Outputs the unescaped value into the template
+                    <%# Comment tag, no execution, no output
+                    <%% Outputs a literal '<%'
+                    %%> Outputs a literal '%>'
+                    %> Plain ending tag
+                    -%> Trim-mode ('newline slurp') tag, trims following newline
+                    _%> 'Whitespace Slurping' ending tag, removes all whitespace after it
 
 
+        342. Passing data to Templates
 
+            with this path a can save a value by the name of num and render it to EJS:
 
-
-
-
+                app.get('/rand', (req, res) => { 
+                    const num = Math.floor(Math.random() * 10) + 1 
+                    res.render('random', {num})
+                })
+        
 
 
 Sec36 L372. Inserting with mongo
