@@ -29,6 +29,27 @@ sec33
                 // res.send({color: 'red'}) // renders object to localhost:3000
                 res.send('<h1> This is my webpage!</h1>')
 
+        333. Express Routing Basics
+            taking incoming requests and a path and matching it to some code in some response
+
+
+            app.get('/cats', (req, res) => {
+                console.log("CAT REQUEST!!!")
+            })
+                with above code in my index.js running in nodemon , visit : localhost:3000/cats
+                    results:   CAT REQUEST!!! , in nodemon terminal
+
+            Post Request : 
+                app.post('/cats', (req, res) => {
+                res.send('POST REQUEST TO /cats!!!! THIS IS DIFFRENT THAN A GET REQUEST!')
+            })
+                    : if we send a get request to cats we will get the console.log.  however if we send a post request (using postman) to cats we git the Post reponse
+                    
+                    POST REQUEST TO /cats!!!! THIS IS DIFFRENT THAN A GET REQUEST!
+
+
+
+
 
 
 
