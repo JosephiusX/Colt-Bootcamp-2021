@@ -137,7 +137,33 @@ sec34 L.339. Configuring Express for EJS
                     const num = Math.floor(Math.random() * 10) + 1 
                     res.render('random', {num})
                 })
-        
+
+        343. Subreddit Template Demo    
+
+            app.get('/r/:subreddit',(req, res) => {
+                const { subreddit } = req.params;
+                res.render('subreddit', { subreddit })
+            })
+
+                 http://localhost:3000/r/dogs
+                    remders to subbredit.ejs:
+                        Browsing the dogs subreddit
+
+
+        344. Conditionals in EJS
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Sec36 L372. Inserting with mongo
