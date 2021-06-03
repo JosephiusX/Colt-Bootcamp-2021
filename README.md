@@ -46,6 +46,28 @@ sec33
                     : if we send a get request to cats we will get the console.log.  however if we send a post request (using postman) to cats we git the Post reponse
                     
                     POST REQUEST TO /cats!!!! THIS IS DIFFRENT THAN A GET REQUEST!
+        
+        334. Express Path requirements
+
+                app.get('/r/:subreddit', (req, res) => {
+                    res.send("THIS IS A SUBREDDIT!")
+                })
+
+                localhost:3000/cats
+                    : sends THIS IS A SUBREDDIT
+                    in node :
+                        LISTENING ON PORT 3000!
+                        { subreddit: 'cats' }
+            
+            with this route:
+                app.get('/r/:subreddit/:postId', (req, res) => { 
+                const { subreddit, postId } = req.params;
+                res.send(`<h1>Viewing Post ID: ${postId} on the ${subreddit} subreddit</h1> `)
+                })
+                    result: localhost:3000/r/gardening/289173
+                        rendered:
+                            Viewing Post ID: 289173 on the gardening subreddit
+
 
 
 
