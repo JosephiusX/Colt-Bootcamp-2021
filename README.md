@@ -82,7 +82,11 @@ sec33
                 http://localhost:3000/search?q=dogs&colors=red
 
 
+        336. Auto Restart With Nodemon
 
+                install nodemon globally : npm i -g nodemon
+
+                in command line in file dir: nodemon index.js
 
 
 
