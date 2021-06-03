@@ -89,6 +89,32 @@ sec33
                 in command line in file dir: nodemon index.js
 
 
+sec34 L.339. Configuring Express for EJS
+     
+                in new dir: npm init -y
+                            npm i express
+                            touch index.js
+                            npm i ejs
+                            mkdir views
+                            inside viewes dir : touch home.ejs
+
+                            add to index.js file:
+                            app.set('view engine', 'ejs')
+
+                render file:
+                    res.render('home')
+        
+        340. Setting The Views Directory 
+        
+            - helps me run the file from outside the folder 
+
+                add to index.html:
+
+                    const path = require('path');
+
+                    app.set('views', path.join(__dirname, '/views'))
+                
+
 
 
 
