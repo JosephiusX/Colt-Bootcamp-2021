@@ -151,8 +151,20 @@ sec34 L.339. Configuring Express for EJS
 
 
         344. Conditionals in EJS
+            random.ejs
 
-        345.
+        345. Loops in ejs
+            cats.ejs
+
+        346. A More Complex Subreddit Demo
+            
+        we connected these routes to our json data file:
+            http://localhost:3000/r/soccer
+            http://localhost:3000/r/chickens
+            http://localhost:3000/r/mightyharvest
+
+        we added error handling for if the route isint recegonized:
+            http://localhost:3000/r/dogs
 
 
 
