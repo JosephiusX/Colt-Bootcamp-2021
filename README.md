@@ -221,7 +221,16 @@ sec35 L 351. Get Vs. Post Requests
 
     353. Parsing the Request Body
 
-        
+            parse request body as url encoded data:
+                 app.use(express.urlencoded({extended: true}))
+
+            console.log(req.body) : { meat: 'carnitas', qty: '4' }
+                shows that the form post info was added to req.body
+
+            helps read JSON:
+                app.use(express.json())
+
+    354. Intro to REST
 
 
 
