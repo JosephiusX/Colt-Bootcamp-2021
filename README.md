@@ -243,6 +243,16 @@ sec35 L 351. Get Vs. Post Requests
     355. RESTFUL Comments Overview
 
 
+                BASIC CRUD FUNCTIONALITY BLUEPRINT:
+            GET /comments - list all comments
+            POST /comments - Create a new comment
+            GET /comments/:id -Get one comment (using ID)
+            PATCH /comments/:id - Update one comment
+            DELETE /comments:id - Destroy one comment
+
+    356. RESTful Comments Index
+
+
 
 
 
