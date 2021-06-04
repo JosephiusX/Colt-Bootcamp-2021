@@ -230,7 +230,17 @@ sec35 L 351. Get Vs. Post Requests
             helps read JSON:
                 app.use(express.json())
 
-    354. Intro to REST
+    354. Intro to REST - Represational State Transfer
+
+            REST is an 'architectural style for distributed hypernedua systems."
+
+            It's basically a set of guidlines for how a client + server should communicate and perform CRUD operations on a given resource.
+
+            The main idea of rest is treating data on the server side as resources than that can be CRUDed
+
+            The most common way of approaching REST is in formatting the URLs and HTTP verbs in your applications.
+
+    355. RESTFUL Comments Overview
 
 
 
