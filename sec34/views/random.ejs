@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random</title>
+</head>
+<body>
+    <!-- ti render and embed in ejs %=' -->
+    <h1>Your random number is: <%= num %></h1> 
+
+    <!--  to use only logic %  -->
+    <% if(num % 2 === 0) { %>
+        <h2>That is an even number!</h2>
+        <% } else { %>
+        <h2>its odd</h2>
+        <% } %>
+
+    <!-- same logic above but with a turnary conditional -->
+    <h3>That number is : <%= num%2===0 ? 'EVEN' : 'ODD' %></h3>
+</body>
+</html>
