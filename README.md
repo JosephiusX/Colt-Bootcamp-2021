@@ -195,7 +195,27 @@ sec34 L.339. Configuring Express for EJS
                 then we use a special ejs tag:
                     <%- include('partials/head')%>
 
-sec35 L . 
+sec35 L 351. Get Vs. Post Requests
+
+                get:
+                    used to retreve information
+                    data is sent via query string
+                    Information is plainly visible in the URL!
+                    Limited amount of data can be sent
+                    
+                    submits form data to query string above
+
+                post:
+                    Used to post data to the server
+                    Used to write/create/update
+                    data is sent via request body, not a query string
+                    Can send any sort of data(JSON)
+
+                    submits the form data with the body(can see with postman)
+
+    352. Defining Express Post Routes
+
+            
 
 
 
