@@ -158,13 +158,21 @@ sec34 L.339. Configuring Express for EJS
 
         346. A More Complex Subreddit Demo
             
-        we connected these routes to our json data file:
-            http://localhost:3000/r/soccer
-            http://localhost:3000/r/chickens
-            http://localhost:3000/r/mightyharvest
+                we connected these routes to our json data file:
+                    http://localhost:3000/r/soccer
+                    http://localhost:3000/r/chickens
+                    http://localhost:3000/r/mightyharvest
 
-        we added error handling for if the route isint recegonized:
-            http://localhost:3000/r/dogs
+                    we added error handling for if the route isint recegonized:
+                        http://localhost:3000/r/dogs
+
+        347. Serving Static Assets in express
+            
+                app.use(express.static('public'))
+                
+            with serving assets we have to make it so it works from outside the directory
+
+                app.use(express.static(path.join(__dirname, 'public')))
 
 
 
