@@ -174,6 +174,21 @@ sec34 L.339. Configuring Express for EJS
 
                 app.use(express.static(path.join(__dirname, 'public')))
 
+        348. Bootstrap + Express
+
+            cd Bootstrap demo : cd BootstrapDemo
+
+            it dosent have a public directory because we are going to use bootstrap instead.
+
+            download compiled css and js bootstrap files : https://getbootstrap.com/docs/5.0/getting-started/download/
+
+            also get the jquery min file download
+
+            assuming we dont have a public directory yet : mkdir public
+            mkdir public/css public/js
+
+        349. EJS & Partials 
+
 
 
 
