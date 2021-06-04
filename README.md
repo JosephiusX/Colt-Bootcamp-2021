@@ -119,8 +119,8 @@ sec34 L.339. Configuring Express for EJS
                 TAGS:
                     <% 'Scriptlet' tag, for control-flow, no output
                     <%_ 'Whitespace Slurping' Scriptlet tag, strips all whitespace before it
-                    <%= Outputs the value into the template (escaped)
-                    <%- Outputs the unescaped value into the template
+                    <%= (not treated like html) Outputs the value into the template (escaped)
+                    <%- (will be treated like html) Outputs the unescaped value into the template
                     <%# Comment tag, no execution, no output
                     <%% Outputs a literal '<%'
                     %%> Outputs a literal '%>'
@@ -188,6 +188,14 @@ sec34 L.339. Configuring Express for EJS
             mkdir public/css public/js
 
         349. EJS & Partials 
+
+                in views dir we can make a partials dir for organization. in that file make a head.ejs file.
+                in the file place the code I want to reuse.
+
+                then we use a special ejs tag:
+                    <%- include('partials/head')%>
+
+sec35 L . 
 
 
 
