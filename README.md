@@ -1,13 +1,14 @@
 # Colt-Bootcamp-2021
 sec33 
 
-        330. Introducing Express
+    
+330. Introducing Express
 
                 express is a fast unopinionated, minimalist web framework for Node.js  It helps us build web apps
 
                 its just an npm package which comes with a bunch of methods and optional plugins that we can use to build web applications and API's
 
-        331. Our very first express app
+    331. Our very first express app
 
             mkdir FirstApp
             cd FirstApp
@@ -15,7 +16,7 @@ sec33
             npm i express
             touch index.js
 
-        332. The Request and Response Objects
+    332. The Request and Response Objects
 
             req and res are http but express takes them and turns them into objects
 
@@ -29,23 +30,24 @@ sec33
                 // res.send({color: 'red'}) // renders object to localhost:3000
                 res.send('<h1> This is my webpage!</h1>')
 
-        333. Express Routing Basics
-            taking incoming requests and a path and matching it to some code in some response
+    333. Express Routing Basics
+
+                taking incoming requests and a path and matching it to some code in some response
 
 
-            app.get('/cats', (req, res) => {
-                console.log("CAT REQUEST!!!")
-            })
-                with above code in my index.js running in nodemon , visit : localhost:3000/cats
-                    results:   CAT REQUEST!!! , in nodemon terminal
+                app.get('/cats', (req, res) => {
+                    console.log("CAT REQUEST!!!")
+                })
+                    with above code in my index.js running in nodemon , visit : localhost:3000/cats
+                        results:   CAT REQUEST!!! , in nodemon terminal
 
-            Post Request : 
-                app.post('/cats', (req, res) => {
-                res.send('POST REQUEST TO /cats!!!! THIS IS DIFFRENT THAN A GET REQUEST!')
-            })
-                    : if we send a get request to cats we will get the console.log.  however if we send a post request (using postman) to cats we git the Post reponse
-                    
-                    POST REQUEST TO /cats!!!! THIS IS DIFFRENT THAN A GET REQUEST!
+                Post Request : 
+                    app.post('/cats', (req, res) => {
+                    res.send('POST REQUEST TO /cats!!!! THIS IS DIFFRENT THAN A GET REQUEST!')
+                })
+                        : if we send a get request to cats we will get the console.log.  however if we send a post request (using postman) to cats we git the Post reponse
+                        
+                        POST REQUEST TO /cats!!!! THIS IS DIFFRENT THAN A GET REQUEST!
         
         334. Express Path requirements
 
@@ -59,34 +61,34 @@ sec33
                         LISTENING ON PORT 3000!
                         { subreddit: 'cats' }
             
-            with this route:
-                app.get('/r/:subreddit/:postId', (req, res) => { 
-                const { subreddit, postId } = req.params;
-                res.send(`<h1>Viewing Post ID: ${postId} on the ${subreddit} subreddit</h1> `)
-                })
-                    result: localhost:3000/r/gardening/289173
-                        rendered:
-                            Viewing Post ID: 289173 on the gardening subreddit
+                with this route:
+                    app.get('/r/:subreddit/:postId', (req, res) => { 
+                    const { subreddit, postId } = req.params;
+                    res.send(`<h1>Viewing Post ID: ${postId} on the ${subreddit} subreddit</h1> `)
+                    })
+                        result: localhost:3000/r/gardening/289173
+                            rendered:
+                                Viewing Post ID: 289173 on the gardening subreddit
 
         335. working with Query Strings
 
-            app.get('/search', (req, res) => {
-                const { q } = req.query;
-                if(!q) { 
-                    res.send(`NOTHING FOUND IF NOTHING SEARCHED`)
-                }
-                res.send(`<h1>Search results for: ${q}</h1>`) 
-            })
+                 app.get('/search', (req, res) => {
+                    const { q } = req.query;
+                    if(!q) { 
+                        res.send(`NOTHING FOUND IF NOTHING SEARCHED`)
+                    }
+                    res.send(`<h1>Search results for: ${q}</h1>`) 
+                })
 
-            run in postman to see complete results:
-                http://localhost:3000/search?q=dogs&colors=red
+                run in postman to see complete results:
+                    http://localhost:3000/search?q=dogs&colors=red
 
-
+`
         336. Auto Restart With Nodemon
 
                 install nodemon globally : npm i -g nodemon
 
-                in command line in file dir: nodemon index.js
+                in com       mand line in file dir: nodemon index.js
 
 
 sec34 L.339. Configuring Express for EJS
@@ -104,7 +106,7 @@ sec34 L.339. Configuring Express for EJS
                 render file:
                     res.render('home')
         
-        340. Setting The Views Directory 
+    340. Setting The Views Directory 
         
             - helps me run the file from outside the folder 
 
@@ -257,7 +259,10 @@ sec35 L 351. Get Vs. Post Requests
                 app.set('view engine', 'ejs')
             mkdir views
 
-            
+    357. RESTful Comments New        
+
+    358. Express Redirects
+        
 
 
 

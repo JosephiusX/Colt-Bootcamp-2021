@@ -26,8 +26,18 @@ const comments = [
     }
 ]
 
-app.get('/comments', (req, res) => {
+app.get('/comments', (req, res) => { // localhost:3000/comments
     res.render('comments/index', { comments }) // giving assess to comments obj in our template 
+})
+
+app.get('/comments/new', (req, res) => { // localhost:3000/comments/new
+    res.render('comments/new'); // rendering new.ejs in comments dir in views
+})
+
+app.post('/comments', (req, res) => {
+    const { username, comment} = req.body
+    comments.push({ username, comment})
+    res.send("IT WORKED!");
 })
 
 app.get('/tacos', (req, res) => {
