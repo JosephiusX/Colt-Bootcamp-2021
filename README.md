@@ -278,7 +278,34 @@ sec35 L 351. Get Vs. Post Requests
 
     361. RESTful Comments Update
 
-        no fucking clue
+        no fucking clue what the lesson was about or if it even worked.
+
+    362. Express Method Override
+
+             normally we can only use get and post from a form, method override changes that:
+
+             npm i method-override
+
+             require in index.js file:
+                const methodOverride = require('method-override')
+
+             to use:
+             app.use(methodOverride('_method'))
+
+             we are overriding the method to which ever one we want
+
+             ******************** shit still dosent work
+
+    363. RESTful Components Delete
+
+            
+
+
+
+
+
+
+    
 
 
 
