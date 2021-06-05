@@ -252,6 +252,13 @@ sec35 L 351. Get Vs. Post Requests
 
     356. RESTful Comments Index
 
+            npm i ejs
+            set view engine in index.html:
+                app.set('view engine', 'ejs')
+            mkdir views
+
+            
+
 
 
 
