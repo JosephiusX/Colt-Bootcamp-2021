@@ -294,7 +294,9 @@ sec35 L 351. Get Vs. Post Requests
 
              we are overriding the method to which ever one we want
 
-             ******************** shit still dosent work
+             ******************** shit still dosent work:
+                    it was a space before my route in the index.js file
+
 
     363. RESTful Components Delete
 

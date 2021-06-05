@@ -59,8 +59,8 @@ app.get('/comments/:id/edit', (req, res) => {
     res.render('comments/edit', { comment })
 })
 
-app.patch(' comments/:id', (req, res) => {
-    const { id } = req.params;
+app.patch('/comments/:id', (req, res) => {
+    const { id } = req.params; // find id in req.params. assign id its value
     const foundComment = comments.find(c => c.id === id);
     const newCommentText = req.body.comment;
     foundComment.comment = newCommentText;
