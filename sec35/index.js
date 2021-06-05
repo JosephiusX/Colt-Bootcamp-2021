@@ -10,7 +10,7 @@ app.use(methodOverride('_method')) // also required for method-override
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
-const comments = [
+let comments = [
     {
         id: uuid(),
         username: 'Todd',
@@ -59,12 +59,18 @@ app.get('/comments/:id/edit', (req, res) => {
     res.render('comments/edit', { comment })
 })
 
-app.patch(' /comments/:id', (req, res) => {
+app.patch(' comments/:id', (req, res) => {
     const { id } = req.params;
-    const newCommentText = req.body.comment;
     const foundComment = comments.find(c => c.id === id);
+    const newCommentText = req.body.comment;
     foundComment.comment = newCommentText;
     res.redirect('/comments')
+})
+
+app.delete('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    comments = comments.filter(c => c.id !== id);
+    res.redirect('/comments');
 })
 
 app.get('/tacos', (req, res) => {
