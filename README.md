@@ -1022,15 +1022,15 @@ sec39 405 Creating Basic Exprss App
 
         409. Campground Show
 
-            check route:
-                http://localhost:3000/campgrounds/askjd
-                    returns: CAMPGROUND SHOW
+                check route:
+                    http://localhost:3000/campgrounds/askjd
+                        returns: CAMPGROUND SHOW
 
-            final check : click on the ca
+                final check : click on the ca
 
         410. Campground New & Create
 
-            
+
 
 
 
