@@ -259,10 +259,14 @@ sec35 L 351. Get Vs. Post Requests
                 app.set('view engine', 'ejs')
             mkdir views
 
-    357. RESTful Comments New        
+    357. RESTful Comments New   
+
+            make create route     
 
     358. Express Redirects
-        
+
+            
+
 
 
 
