@@ -269,6 +269,14 @@ sec35 L 351. Get Vs. Post Requests
 
     360. The UUID Package
 
+        npm package for generating unique ids:
+            npm i uuid
+
+        must require in index.html:
+            const { v4: uuid } = require('uuid');
+            uuid();
+
+    361. RESTful Comments Update
 
 
 
