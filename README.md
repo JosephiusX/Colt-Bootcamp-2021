@@ -1066,7 +1066,8 @@ sec40
 
         420. Protecting Specific Routes
 
-        
+                to test that its working:
+                    http://localhost:3000/secret?password=chickennugget
 
 
 

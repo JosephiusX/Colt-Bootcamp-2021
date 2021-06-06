@@ -16,13 +16,13 @@ app.use('/dogs', (req, res, next) => {
     next();
 })
 
-app.use((req, res, next) => {
+const verifyPassword = (req, res, next) => {
     const { password } = req.query;
     if (password === 'chickennugget') {
         next();
     }
     res.send('SORRY YOU NEED A PASSWORD!!!')
-})
+}
 
 // app.use((req, res, next) => {
 //     console.log("THIS IS MY FIRST MIDDLEWHERE!!!")
@@ -51,7 +51,7 @@ app.get('/dogs', (req, res) => {
     res.send('WOOF WOOF!')
 })
 
-app.get('/secret', (req, res) => {
+app.get('/secret', verifyPassword, (req, res) => {
     res.send('MY SECRET IS: Sometimes I wear headphones in public so I dont have to talk to anyone')
 })
 
