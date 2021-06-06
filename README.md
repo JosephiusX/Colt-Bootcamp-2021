@@ -1031,6 +1031,13 @@ sec39 405 Creating Basic Exprss App
         410. Campground New & Create
 
 
+        411. Campground Edit & Update
+
+                npm i method-override
+                    then require in app.js:
+                        const methodOverride = require('method-override')
+
+                        app.use(methodOverride('_method'))
 
 
 
