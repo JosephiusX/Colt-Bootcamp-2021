@@ -58,7 +58,12 @@ app.put('/campgrounds/:id',async (req, res) => {
     res.redirect(`/campgrounds/${campground._id}`)
 })
 
+app.delete('/campgrounds/:id', async (req, res) => {
+    const { id } = req.params; // destructure,  finds id's value and assigns it to id for use here
+    await Campground.findByIdAndDelete(id); // find campground by id and delete
+    res.redirect('/campgrounds'); // redirect back to campground
 
+})
 
 
 app.listen(3000, () => {
