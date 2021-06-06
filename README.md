@@ -1062,6 +1062,11 @@ sec40
 
         418. Setting Up A 404 Route
 
+        419. Password Middleware Demo (NOT REAL AUTH)
+
+        420. Protecting Specific Routes
+
+        
 
 
 

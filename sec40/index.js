@@ -16,6 +16,14 @@ app.use('/dogs', (req, res, next) => {
     next();
 })
 
+app.use((req, res, next) => {
+    const { password } = req.query;
+    if (password === 'chickennugget') {
+        next();
+    }
+    res.send('SORRY YOU NEED A PASSWORD!!!')
+})
+
 // app.use((req, res, next) => {
 //     console.log("THIS IS MY FIRST MIDDLEWHERE!!!")
 //     next();
@@ -41,6 +49,10 @@ app.get('/', (req, res) => {
 app.get('/dogs', (req, res) => {
     console.log(`REQUEST DATE: ${req.requestTime}`)
     res.send('WOOF WOOF!')
+})
+
+app.get('/secret', (req, res) => {
+    res.send('MY SECRET IS: Sometimes I wear headphones in public so I dont have to talk to anyone')
 })
 
 app.use((req, res) => {
