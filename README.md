@@ -1054,7 +1054,13 @@ sec40
 
              app.use(morgan('tiny))
 
-        416. Defininf Our Own Middlewhare  
+             app.use is a way to run code on every single request
+
+        416. Defining Our Own Middlewhare 
+
+        417. More Middleware Practice
+        
+         
 
 
 
