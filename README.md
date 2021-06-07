@@ -1070,4 +1070,14 @@ sec40
                     http://localhost:3000/secret?password=chickennugget
 
 
+sec41 YelpCamp Adding Basic Styles
 
+        421. A New EJS Tool For Layouts 
+
+            a solution that works better than partials:
+                npm i ejs-mate
+                require in app.js
+           in views dir make layouts dir
+           in layouts dir make boilerplate.ejs 
+
+    
