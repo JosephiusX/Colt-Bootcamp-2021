@@ -215,90 +215,90 @@ sec35 L 351. Get Vs. Post Requests
 
                     submits the form data with the body(can see with postman)
 
-    352. Defining Express Post Routes
+        352. Defining Express Post Routes
 
-            in new empty folder : npm init -y
-                                npm i express
-                                touch index.js
+                in new empty folder : npm init -y
+                                    npm i express
+                                    touch index.js
 
-    353. Parsing the Request Body
+        353. Parsing the Request Body
 
-            parse request body as url encoded data:
-                 app.use(express.urlencoded({extended: true}))
+                parse request body as url encoded data:
+                    app.use(express.urlencoded({extended: true}))
 
-            console.log(req.body) : { meat: 'carnitas', qty: '4' }
-                shows that the form post info was added to req.body
+                console.log(req.body) : { meat: 'carnitas', qty: '4' }
+                    shows that the form post info was added to req.body
 
-            helps read JSON:
-                app.use(express.json())
+                helps read JSON:
+                    app.use(express.json())
 
-    354. Intro to REST - Represational State Transfer
+        354. Intro to REST - Represational State Transfer
 
-            REST is an 'architectural style for distributed hypernedua systems."
+                REST is an 'architectural style for distributed hypernedua systems."
 
-            It's basically a set of guidlines for how a client + server should communicate and perform CRUD operations on a given resource.
+                It's basically a set of guidlines for how a client + server should communicate and perform CRUD operations on a given resource.
 
-            The main idea of rest is treating data on the server side as resources than that can be CRUDed
+                The main idea of rest is treating data on the server side as resources than that can be CRUDed
 
-            The most common way of approaching REST is in formatting the URLs and HTTP verbs in your applications.
+                The most common way of approaching REST is in formatting the URLs and HTTP verbs in your applications.
 
-    355. RESTFUL Comments Overview
-
-
-                BASIC CRUD FUNCTIONALITY BLUEPRINT:
-            GET /comments - list all comments
-            POST /comments - Create a new comment
-            GET /comments/:id -Get one comment (using ID)
-            PATCH /comments/:id - Update one comment
-            DELETE /comments:id - Destroy one comment
-
-    356. RESTful Comments Index
-
-            npm i ejs
-            set view engine in index.html:
-                app.set('view engine', 'ejs')
-            mkdir views
-
-    357. RESTful Comments New   
-
-            make create route     
-
-    358. Express Redirects
-
-    359. RESTful Comments Show
-
-    360. The UUID Package
-
-        npm package for generating unique ids:
-            npm i uuid
-
-        must require in index.html:
-            const { v4: uuid } = require('uuid');
-            uuid();
-
-    361. RESTful Comments Update
-
-        no fucking clue what the lesson was about or if it even worked.
-
-    362. Express Method Override
-
-             normally we can only use get and post from a form, method override changes that:
-
-             npm i method-override
-
-             require in index.js file:
-                const methodOverride = require('method-override')
-
-             to use:
-             app.use(methodOverride('_method'))
-
-             we are overriding the method to which ever one we want
-
-             ******************** shit still dosent work:
-                    it was a space before my route in the index.js file
+        355. RESTFUL Comments Overview
 
 
-    363. RESTful Components Delete
+                    BASIC CRUD FUNCTIONALITY BLUEPRINT:
+                GET /comments - list all comments
+                POST /comments - Create a new comment
+                GET /comments/:id -Get one comment (using ID)
+                PATCH /comments/:id - Update one comment
+                DELETE /comments:id - Destroy one comment
+
+        356. RESTful Comments Index
+
+                npm i ejs
+                set view engine in index.html:
+                    app.set('view engine', 'ejs')
+                mkdir views
+
+        357. RESTful Comments New   
+
+                make create route     
+
+        358. Express Redirects
+
+        359. RESTful Comments Show
+
+        360. The UUID Package
+
+            npm package for generating unique ids:
+                npm i uuid
+
+            must require in index.html:
+                const { v4: uuid } = require('uuid');
+                uuid();
+
+        361. RESTful Comments Update
+
+            no fucking clue what the lesson was about or if it even worked.
+
+        362. Express Method Override
+
+                normally we can only use get and post from a form, method override changes that:
+
+                npm i method-override
+
+                require in index.js file:
+                    const methodOverride = require('method-override')
+
+                to use:
+                app.use(methodOverride('_method'))
+
+                we are overriding the method to which ever one we want
+
+                ******************** shit still dosent work:
+                        it was a space before my route in the index.js file
+
+
+        363. RESTful Components Delete
 
         Seems to be working peachy
 
@@ -1080,4 +1080,7 @@ sec41 YelpCamp Adding Basic Styles
            in views dir make layouts dir
            in layouts dir make boilerplate.ejs 
 
-    
+        422. Bootstrap5! Boilerplate
+             add bootstrap 5 css cdn to boilerplate
+             added 2 js cdns as well
+             put body in a html element 
