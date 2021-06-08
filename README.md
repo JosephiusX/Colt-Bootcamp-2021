@@ -1106,7 +1106,6 @@ sec41 YelpCamp Adding Basic Styles
             missed something
                     copied github, its just the bootstrap stuff who cares
 
-
         428. Styling the edit form
             copied github, its just the bootstrap stuff who cares
 
