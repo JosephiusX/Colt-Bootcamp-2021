@@ -1104,5 +1104,17 @@ sec41 YelpCamp Adding Basic Styles
 
         427. Styling The New Form
             missed something
+                    copied github, its just the bootstrap stuff who cares
+
+
+        428. Styling the edit form
+            copied github, its just the bootstrap stuff who cares
+
+        429. Styling Show page
+            copied github, its just the bootstrap stuff who cares
+
+sec42 Handling Errors in Express Apps
+
         
+
 
