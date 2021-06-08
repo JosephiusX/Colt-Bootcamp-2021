@@ -1098,4 +1098,7 @@ sec41 YelpCamp Adding Basic Styles
 
         425. Adding Images
             
+            update campground Schema
+
+        426. Styling Capgrounds Index
 
