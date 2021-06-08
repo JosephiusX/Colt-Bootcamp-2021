@@ -21,29 +21,18 @@ const verifyPassword = (req, res, next) => {
     if (password === 'chickennugget') {
         next();
     }
-    res.send('SORRY YOU NEED A PASSWORD!!!')
+    // res.send('PASSWORD NEEDED !!!')
+    throw new Error('Password required!')
 }
-
-// app.use((req, res, next) => {
-//     console.log("THIS IS MY FIRST MIDDLEWHERE!!!")
-//     next();
-//     console.log('THIS IS MY FIRST MIDDLEWHARE - AFTER CALLING NEXT()')
-// })
-
-// app.use((req, res, next) => {
-//     console.log("THIS IS MY SECOND MIDDLEWHERE!!!")
-//     next();
-// })
-
-// app.use((req, res, next) => {
-//     console.log("THIS IS MY THIRD MIDDLEWHERE!!!")
-//     next();
-// })
 
 
 app.get('/', (req, res) => {
     console.log(`REQUEST DATE: ${req.requestTime}`)
     res.send('HOME PAGE!')
+})
+
+app.get('/error', (req, res) => {
+    chicken.fly()
 })
 
 app.get('/dogs', (req, res) => {
