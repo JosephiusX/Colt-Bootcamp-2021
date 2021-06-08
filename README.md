@@ -1102,3 +1102,7 @@ sec41 YelpCamp Adding Basic Styles
 
         426. Styling Capgrounds Index
 
+        427. Styling The New Form
+            missed something
+        
+
