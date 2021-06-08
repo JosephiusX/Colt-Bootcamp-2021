@@ -1084,3 +1084,18 @@ sec41 YelpCamp Adding Basic Styles
              add bootstrap 5 css cdn to boilerplate
              added 2 js cdns as well
              put body in a html element 
+        
+        423. Navbar Partial
+
+            in views make partials dir
+            in partials make navbar.ejs for the navbar content
+            include partial in boilerplate:
+                <%- include('../partials/navbar') %>
+
+        424. Footer Partial
+
+            in partial dir make footer.ejs
+
+        425. Adding Images
+            
+
