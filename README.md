@@ -1,4 +1,10 @@
 # Colt-Bootcamp-2021
+sec 27 Async Javascript
+
+    271.  The Call Stack
+        last in first out
+
+
 sec33 
 
     
@@ -1116,4 +1122,10 @@ sec42 Handling Errors in Express Apps
 
         431. Express ' Built-in Errot Handler
 
+        432. idk wtf is going on
+
+        435. Handling more async errors
+            async functions need to be handled with try catch
+
+        436. Defining An Async Utility
 
