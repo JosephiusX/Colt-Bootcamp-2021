@@ -1129,7 +1129,22 @@ sec42 Handling Errors in Express Apps
 
         436. Defining An Async Utility
 
-        436. Differentiating Mongoose Error
+        437. Differentiating Mongoose Error
+
+sec34 YelpCamp: Errors & Validating Data
+
+        439. Client side form validators
+            
+            bootstrap has its own form validator helpers found in the docs under forms > validation
+
+        440. Basic Error Handler
+            
+
+
+
+    
+
+
 
 
 
