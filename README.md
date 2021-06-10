@@ -1210,7 +1210,8 @@ sec44 Data Relationships with mongo
             we can embed documents or we can reference them
 
         453. Mongo Schema Design
-        
+
+            https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-3
 
     
 
