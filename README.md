@@ -1187,6 +1187,13 @@ sec44 Data Relationships with mongo
 
         449. One to Few
 
+                npm init a new folder
+                npm i mongoose
+                mkdir Models
+                in Models make user.js
+
+        450. One to Many
+
 
     
 
