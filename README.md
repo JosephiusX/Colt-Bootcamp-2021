@@ -1168,12 +1168,16 @@ sec43 YelpCamp: Errors & Validating Data
             npm i joi
              require in app.js
 
-             ********** not sure if this is working
+             ********** not sure if i tested properly with postman
 
         445. joi Validation Middleware
 
-            
 
+            add schemas.js file at top level of code and export
+
+            require in app.js
+
+            ************** also not sure if i tested correctly with postman
 
     
 
