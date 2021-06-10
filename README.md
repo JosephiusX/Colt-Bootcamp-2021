@@ -1156,7 +1156,13 @@ sec43 YelpCamp: Errors & Validating Data
 
             instead of try catch
                 wrap the route body in the catchAsync() function exported from catchAsync.js
-        441.
+
+        442. More Errors
+
+            we did some stuff
+
+        443.Defining Error Template
+                
 
 
 
