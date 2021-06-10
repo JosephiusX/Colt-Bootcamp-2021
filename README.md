@@ -1194,6 +1194,10 @@ sec44 Data Relationships with mongo
 
         450. One to Many
 
+            One option is to store data separately, but then store references to document ID somewhere inside the parent(similar to SQL approach)
+            
+
+            make farm.js in models dir
 
     
 
