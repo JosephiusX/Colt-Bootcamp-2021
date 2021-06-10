@@ -1163,7 +1163,16 @@ sec43 YelpCamp: Errors & Validating Data
 
         443.Defining Error Template
                 
+        444. JOI Schema Validations 
 
+            npm i joi
+             require in app.js
+
+             ********** not sure if this is working
+
+        445. joi Validation Middleware
+
+            
 
 
     
