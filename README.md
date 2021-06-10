@@ -1179,6 +1179,15 @@ sec43 YelpCamp: Errors & Validating Data
 
             ************** also not sure if i tested correctly with postman
 
+sec44 Data Relationships with mongo
+            
+        448. SQL Relationships Overview
+
+                basic idea of how SQL works
+
+        449. One to Few
+
+
     
 
 
