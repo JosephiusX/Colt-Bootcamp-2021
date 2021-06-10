@@ -1205,6 +1205,13 @@ sec44 Data Relationships with mongo
 
         452. One to 'Bajillions
 
+            with thousands or mor documents, it's more efficent to store a reference to the parent on the child document. 
+
+            we can embed documents or we can reference them
+
+        453. Mongo Schema Design
+        
+
     
 
 
