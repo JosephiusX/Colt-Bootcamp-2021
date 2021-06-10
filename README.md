@@ -1144,7 +1144,19 @@ sec43 YelpCamp: Errors & Validating Data
             wrap the route body with try and catch(e) {
                 next(e)
             }
-            
+
+        441. Defining ExpressError Class
+
+            make dir utils
+            in utils make ExpressError.js file
+                make express error object
+
+            make catchAsync.js file in utils dir as well
+
+
+            instead of try catch
+                wrap the route body in the catchAsync() function exported from catchAsync.js
+        441.
 
 
 
