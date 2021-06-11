@@ -1224,6 +1224,10 @@ sec45 Mongo relationships with Express
 
         456. Note about farm and model:
 
+        457. Creating new farms
+
+            make farm folder in views insid it make new.ejs template
+
         
 
     

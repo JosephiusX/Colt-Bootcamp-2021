@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 
 const Product = require('./models/product');
+const Farm = require('./models/farm');
 
 mongoose.connect('mongodb://localhost:27017/farmStandTake2', {useNewUrlParser: true, useUnifiedTopology: true}) // default mongo port, copy from  where to find mongodb locally / database (if it dosent exist one will be created)
     .then(() => { // try
@@ -22,6 +23,29 @@ app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
+
+// Farm routes
+
+app.get('/farms', async (req, res) => {
+    const farms = await Farm.find({});
+    res.render('farms/index', { farms })
+})
+
+app.get('/farms/new', (req, res) => {
+    res.render('farms/new')
+})
+
+app.post('/farms', async (req, res) => {
+    const farm = new Farm(req.body);
+    await farm.save();
+    res.redirect('/farms')
+})
+
+
+
+
+
+//Product route
 
 const categories = ['fruit', 'vegetable', 'dairy'];
 
