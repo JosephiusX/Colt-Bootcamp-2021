@@ -1222,7 +1222,9 @@ sec45 Mongo relationships with Express
 
             in models dir make farm.js file
 
-        456. 
+        456. Note about farm and model:
+
+        
 
     
 
