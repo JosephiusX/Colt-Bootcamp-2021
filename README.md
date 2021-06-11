@@ -1245,6 +1245,16 @@ sec45 Mongo relationships with Express
 
         461. Deletion Mongoose Middleware
             now if i delete the farm the products associated with it are deleted as well
+
+Section 46: YelpCamp: Adding The Reviews Model
+
+        462. Defining The Review Model
+
+            in models directory make review.js
+                require mongoose in it
+
+        463. Adding The Review Form
+
     
 
 
