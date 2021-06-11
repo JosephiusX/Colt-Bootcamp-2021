@@ -41,6 +41,12 @@ app.get('/farms/:id', async(req, res) => {
     res.render('farms/show', { farm })
 })
 
+app.delete('/farms/:id', async(req, res) => { // delete a single farm
+    const farm = await Farm.findByIdAndDelete(req.params.id);
+
+    res.redirect('/farms');
+})
+
 app.post('/farms', async (req, res) => {
     const farm = new Farm(req.body);
     await farm.save();
