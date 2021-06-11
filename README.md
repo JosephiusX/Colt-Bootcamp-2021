@@ -1228,7 +1228,9 @@ sec45 Mongo relationships with Express
 
             make farm folder in views insid it make new.ejs template
 
-        
+        458. show farm page
+
+            in farms dir make show.ejs
 
     
 
