@@ -1213,6 +1213,17 @@ sec44 Data Relationships with mongo
 
             https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-3
 
+sec45 Mongo relationships with Express
+
+        455. Defining Our Farm & Product Models
+            we start by copying the farmstand app in sec 38
+
+            name it farmStandTake2 in index.js to distinguish
+
+            in models dir make farm.js file
+
+        456. 
+
     
 
 
