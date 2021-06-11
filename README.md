@@ -1232,6 +1232,17 @@ sec45 Mongo relationships with Express
 
             in farms dir make show.ejs
 
+        459. Creating products for a farm
+
+            in this route we need the farm id because we are making a new product from the farm.
+
+            we have a field on farm that refs product
+            we have a field on product that refs farm
+
+            at the end we can a new product to a specific farm.
+
+        460. Finishing Touches
+
     
 
 
