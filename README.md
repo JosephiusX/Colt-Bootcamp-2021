@@ -1262,7 +1262,11 @@ Section 46: YelpCamp: Adding The Reviews Model
         466. Displaying Reviews
 
         467. Styling Reviews
-        
+
+        468. Deleting Reviews
+            having problems with the redirect
+            
+
 
         
 
