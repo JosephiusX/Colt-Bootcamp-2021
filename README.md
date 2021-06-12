@@ -1294,7 +1294,15 @@ sec47 Express Router and Cookies
 
             http://localhost:3000/admin/deleteeverything?isAdmin=true
                 : ok deleted it all, because admin is set to true in the query string
-                
+
+    473. Introducing Cookies
+
+            cookies are little bits of info that are stored in a user's browser when browsing a particular  website.
+
+            onec a cookie is set, a user's browser will send the cookie on every subsiquent request to the site.
+
+            Cookies allow use to make http stateful.
+
 
 
         
