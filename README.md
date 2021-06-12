@@ -1264,7 +1264,9 @@ Section 46: YelpCamp: Adding The Reviews Model
         467. Styling Reviews
 
         468. Deleting Reviews
-            having problems with the redirect
+            having problems with the redirect . need to check source code at end of section
+
+        469. Campground delete Middleware
             
 
 
