@@ -1315,7 +1315,10 @@ sec47 Express Router and Cookies
 
         something to do with verifying state
 
-        
+    477. Optional HMAC signing
+    
+
+
 
 
 
