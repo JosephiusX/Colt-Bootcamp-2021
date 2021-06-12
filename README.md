@@ -1285,6 +1285,17 @@ sec47 Express Router and Cookies
 
             make another example in dogs.js
 
+    472. Express Router & Middleware
+
+            touch admin.js in routes dir
+
+            http://localhost:3000/admin/deleteeverything
+                : sorry not an admin via the middleware
+
+            http://localhost:3000/admin/deleteeverything?isAdmin=true
+                : ok deleted it all, because admin is set to true in the query string
+                
+
 
         
 
