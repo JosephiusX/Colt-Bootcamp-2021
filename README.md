@@ -1272,6 +1272,19 @@ Section 46: YelpCamp: Adding The Reviews Model
 
             now when we delete the campground , all associated reviews are deleted as well.
 
+sec47 Express Router and Cookies
+
+    471. Express Router Intro
+
+        set up basic espress app for demo
+            npm init -y
+            npm i express
+            touch index.js , require express
+            mkdir routes
+            in routes touch shelters.js, require express
+
+            make another example in dogs.js
+
 
         
 
