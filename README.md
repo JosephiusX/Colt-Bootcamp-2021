@@ -1311,6 +1311,12 @@ sec47 Express Router and Cookies
 
             npm i cookie-parse475r
 
+    476. Signing cookies
+
+        something to do with verifying state
+
+        
+
 
 
         
