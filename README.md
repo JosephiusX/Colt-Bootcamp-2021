@@ -1264,10 +1264,13 @@ Section 46: YelpCamp: Adding The Reviews Model
         467. Styling Reviews
 
         468. Deleting Reviews
-            having problems with the redirect . need to check source code at end of section
+            having problems with the redirect . need to check source code at end of section 
+            ******* i put Id instead of id in the route
 
         469. Campground delete Middleware
-            
+            if we delete the campground, all the reviews associated with it are still in the database but not accessable.
+
+            now when we delete the campground , all associated reviews are deleted as well.
 
 
         
