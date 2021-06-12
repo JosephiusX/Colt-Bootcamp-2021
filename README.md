@@ -1257,7 +1257,9 @@ Section 46: YelpCamp: Adding The Reviews Model
 
         464. Creating Reviews
 
-        
+        465. Validating Reviews
+
+        466. Displaying Reviews
 
         
 
