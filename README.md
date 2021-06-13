@@ -1331,6 +1331,18 @@ sec 48 Express Session & Flash
 
         481. More Express Session
 
+            if i send my name in the querry string it will recegonise me for the session:
+                localhost:3000/resister?username=Joseph
+
+        482. Intro to flash
+
+             couldnt find starter code, just watched 
+
+        481. Res.locals & Flash
+
+
+
+
 
 
 
