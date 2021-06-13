@@ -1324,7 +1324,11 @@ sec 48 Express Session & Flash
 
             sessions are a server-side and then send the browser a cookie that can be used to retrieve the data.
 
-        480.
+        480. Express Session
+            initalize express app
+            touch index.js
+            npm i express-session
+
 
 
 
