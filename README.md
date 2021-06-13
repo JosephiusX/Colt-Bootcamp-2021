@@ -1340,6 +1340,15 @@ sec 48 Express Session & Flash
 
         481. Res.locals & Flash
 
+sec 49: YelpCamp: Restructuring & Flash
+
+        484. Breaking Out Campground Routes
+            mkdir routes
+            in routes touh campgrounds.js
+            requier express and router
+
+        
+
 
 
 
