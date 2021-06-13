@@ -1274,49 +1274,59 @@ Section 46: YelpCamp: Adding The Reviews Model
 
 sec47 Express Router and Cookies
 
-    471. Express Router Intro
+        471. Express Router Intro
 
-        set up basic espress app for demo
-            npm init -y
-            npm i express
-            touch index.js , require express
-            mkdir routes
-            in routes touch shelters.js, require express
+            set up basic espress app for demo
+                npm init -y
+                npm i express
+                touch index.js , require express
+                mkdir routes
+                in routes touch shelters.js, require express
 
-            make another example in dogs.js
+                make another example in dogs.js
 
-    472. Express Router & Middleware
+        472. Express Router & Middleware
 
-            touch admin.js in routes dir
+                touch admin.js in routes dir
 
-            http://localhost:3000/admin/deleteeverything
-                : sorry not an admin via the middleware
+                http://localhost:3000/admin/deleteeverything
+                    : sorry not an admin via the middleware
 
-            http://localhost:3000/admin/deleteeverything?isAdmin=true
-                : ok deleted it all, because admin is set to true in the query string
+                http://localhost:3000/admin/deleteeverything?isAdmin=true
+                    : ok deleted it all, because admin is set to true in the query string
 
-    473. Introducing Cookies
+        473. Introducing Cookies
 
-            cookies are little bits of info that are stored in a user's browser when browsing a particular  website.
+                cookies are little bits of info that are stored in a user's browser when browsing a particular  website.
 
-            onec a cookie is set, a user's browser will send the cookie on every subsiquent request to the site.
+                onec a cookie is set, a user's browser will send the cookie on every subsiquent request to the site.
 
-            Cookies allow use to make http stateful.
+                Cookies allow use to make http stateful.
 
-    474. Sending Cookies
+        474. Sending Cookies
 
-            not able to follow
+                not able to follow
 
-    475. Cookie Parser Middleware
+        475. Cookie Parser Middleware
 
-            npm i cookie-parse475r
+                npm i cookie-parse475r
 
-    476. Signing cookies
+        476. Signing cookies
 
-        something to do with verifying state
+            something to do with verifying state
 
-    477. Optional HMAC signing
-    
+        477. Optional HMAC signing
+
+sec 48 Express Session & Flash
+
+        479. Introduction to Sessions
+            its not very practical (or secure) to store a lot of data client-side using gookies. This is where sessions come in.
+
+            sessions are a server-side and then send the browser a cookie that can be used to retrieve the data.
+
+        480.
+
+
 
 
 
