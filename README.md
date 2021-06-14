@@ -1343,11 +1343,33 @@ sec 48 Express Session & Flash
 sec 49: YelpCamp: Restructuring & Flash
 
         484. Breaking Out Campground Routes
-            mkdir routes
-            in routes touh campgrounds.js
-            requier express and router
+             mkdir routes
+             in routes touh campgrounds.js
+             requier express and router
 
         485. Breaking Out Review Routes
+
+            make  route/reviews.js file
+            require express and express router
+            place review routers in file and
+            export route: 
+                module.exports = router;
+
+            require route in app.js:
+                const Review = require('./routes/reviews');
+
+            use the route:
+                app.use('/campgrounds/:id/reviews', reviews)
+
+            remove ' campgrounds/:id/reviews ' from the routes in reviews.js 
+
+            copy catchAsync over to reviews wit updated path
+
+            require campground and review models:
+                const Campground = require('./models/campground');
+                const Review = require('./models/review');
+
+
 
         
 
