@@ -13,7 +13,8 @@ const reviews = require('./routes/reviews');
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
     userNewUrlParser: true,
     userCreateIndx: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 }); 
 
 const db = mongoose.connection;
@@ -33,6 +34,7 @@ app.use(methodOverride('_method'))
 
 app.use('/campgrounds', campgrounds)
 app.use('/campgrounds/:id/reviews', reviews)
+app.use(express.static(path.join(__dirname, 'public'))); // tells express to serv public directory, setting path to be absolute
 
 app.get('/', (req, res) => {
     res.render('home')
@@ -47,7 +49,6 @@ app.use((err, req, res, next) => { // basic error route
     if(!err.message) err.message = 'Oh No, Something Went Wrong!'
     res.status(statusCode).render('error', { err })
 })
-
 
 app.listen(3000, () => {
     console.log('Serving on port 3000')

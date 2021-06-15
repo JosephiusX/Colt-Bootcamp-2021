@@ -1369,7 +1369,33 @@ sec 49: YelpCamp: Restructuring & Flash
                 const Campground = require('./models/campground');
                 const reviews = require('./models/review');
 
-            
+        486. Serving static Assets
+
+                mkdir public
+                in it touch hello.js (test file)
+                place alert in it to test
+
+                tell express to serve out public directory. in app.js:
+                app.use(express.static('public'))
+
+                in public touch validateForms.js
+                take the bootstrap javascript logic  from boilerplate and place it in validateForms.js file
+                back in the boilerplate.ejs file,  in the remaining script tag, give it a source of validateForms.js
+
+                in public dir make javascripts dir and stylesheets dir
+
+                place validateForms.js in javascripts dir
+                update the src in boilerplate file to  
+                /javascripts/validateForms.js
+
+                use and make path absolute in app.js:
+                    app.use(express.static(path.join(__dirname, 'public')));
+
+                in the mongoose conndecion logic add:
+                    useFindAndModify: false
+
+
+
 
 
 
