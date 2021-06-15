@@ -1367,7 +1367,9 @@ sec 49: YelpCamp: Restructuring & Flash
 
             require campground and review models:
                 const Campground = require('./models/campground');
-                const Review = require('./models/review');
+                const reviews = require('./models/review');
+
+            
 
 
 
