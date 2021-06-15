@@ -1394,6 +1394,12 @@ sec 49: YelpCamp: Restructuring & Flash
                 in the mongoose conndecion logic add:
                     useFindAndModify: false
 
+        487. Configuring Session
+
+                npm i exprss-session
+                require in app.js
+
+        
 
 
 
