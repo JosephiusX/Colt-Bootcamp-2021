@@ -1431,10 +1431,21 @@ sec50 Authentication From 'Scratch'
                 mkdir models
                 in models touch user.js
 
+            set up route for form:
                 in views touch register.ejs : to be rendered due to /register route in app.js
                 build out form
         
         498. Auth Demo: Registering
+
+            set up route where register data will submit to:
+
+            require mongoose
+            set up mongo logic code.
+            set it up as routeDemo
+
+
+
+
 
         
             
