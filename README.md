@@ -1410,7 +1410,9 @@ sec 49: YelpCamp: Restructuring & Flash
 
                 in partials touch flash.ejs
 
-                
+        490. Flash Errors Partial  
+
+                  
 
         
 
