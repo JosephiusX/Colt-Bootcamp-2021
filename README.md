@@ -1416,9 +1416,14 @@ sec50 Authentication From 'Scratch'
 
         491-495  Authentication theory
 
-        496. Intro to Bcrypt
+        496. Intro to Bcrypt - password hashing function
+            
+            in a new folder: npm i bcrypt
+            touch index.js, require Bcrypt
 
         
+            
+
 
         
 
