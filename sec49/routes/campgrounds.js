@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
      const campground = new Campground(req.body.campground);
      await campground.save();
      req.flash('success', 'Successfully made a new campground!');
-         res.redirect(`/${campground._id}`)
+         res.redirect(`/campgrounds/${campground._id}`)
  }));
  
  router.get('/:id', catchAsync(async (req, res) => {
@@ -47,14 +47,15 @@ router.get('/', async (req, res) => {
  router.put('/:id', validateCampground, catchAsync(async (req, res) => {
      const { id } = req.params;
      const campground = await Campground.findByIdAndUpdate(id, { ...req.body.campground });
+     req.flash('success', 'Successfully updated campground!')
      res.redirect(`/campgrounds/${campground._id}`)
  }));
  
  router.delete('/:id', catchAsync(async (req, res) => {
      const { id } = req.params; // destructure,  finds id's value and assigns it to id for use here
      await Campground.findByIdAndDelete(id); // find campground by id and delete
+     req.flash('success', 'Successfully deleted campground');
      res.redirect('/campgrounds'); // redirect back to campground
- 
  }));
 
  module.exports = router;

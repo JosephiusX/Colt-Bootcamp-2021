@@ -1404,9 +1404,17 @@ sec 49: YelpCamp: Restructuring & Flash
                 npm i connect-flash
                 require in app.js
         
-        ********* when i make new campground im getting an error,  campground is created but there seems to be a problem with the redirect
+            ********* when i make new campground im getting an error,  campground is created but there seems to be a problem with the redirect
+
+        489. Flash Success Partial
+
+                in partials touch flash.ejs
+
+                
 
         
+
+
 
 
 
