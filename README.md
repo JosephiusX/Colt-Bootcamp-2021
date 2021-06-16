@@ -1399,6 +1399,13 @@ sec 49: YelpCamp: Restructuring & Flash
                 npm i exprss-session
                 require in app.js
 
+        488. Setting Up Flash
+
+                npm i connect-flash
+                require in app.js
+        
+        ********* when i make new campground im getting an error,  campground is created but there seems to be a problem with the redirect
+
         
 
 

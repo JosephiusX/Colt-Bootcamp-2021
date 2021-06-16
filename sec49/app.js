@@ -3,9 +3,9 @@ const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate'); // require after npm install
 const session = require('express-session'); // npm package
+const flash = require('connect-flash');
 const ExpressError = require('./utils/ExpressError')
 const methodOverride = require('method-override');
-
 
 const campgrounds = require('./routes/campgrounds');
 const reviews = require('./routes/reviews');
@@ -33,9 +33,8 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
-app.use('/campgrounds', campgrounds)
-app.use('/campgrounds/:id/reviews', reviews)
 app.use(express.static(path.join(__dirname, 'public'))); // tells express to serv public directory, setting path to be absolute
+app.use(flash()); // use flash
 
 const sessionConfig = {
     secret: 'thisshouldntbeasecret!',
@@ -48,6 +47,16 @@ const sessionConfig = {
     }
 }
 app.use(session(sessionConfig))
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    next();
+})
+
+app.use('/campgrounds', campgrounds)
+app.use('/campgrounds/:id/reviews', reviews)
 
 app.get('/', (req, res) => {
     res.render('home')
