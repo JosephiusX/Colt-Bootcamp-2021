@@ -1421,6 +1421,8 @@ sec50 Authentication From 'Scratch'
             in a new folder: npm i bcrypt
             touch index.js, require Bcrypt
 
+        497. Auth Demo: Setup
+
         
             
 
