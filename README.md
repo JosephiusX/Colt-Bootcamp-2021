@@ -1423,6 +1423,19 @@ sec50 Authentication From 'Scratch'
 
         497. Auth Demo: Setup
 
+                mkdir BcryptDemo
+                npm init
+                npm i express ejs mongoose bcrypt
+                touch index.js
+                mkdir views
+                mkdir models
+                in models touch user.js
+
+                in views touch register.ejs : to be rendered due to /register route in app.js
+                build out form
+        
+        498. Auth Demo: Registering
+
         
             
 
