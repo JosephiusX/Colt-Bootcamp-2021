@@ -1412,7 +1412,15 @@ sec 49: YelpCamp: Restructuring & Flash
 
         490. Flash Errors Partial  
 
-                  
+sec50 Authentication From 'Scratch'
+
+        491-495  Authentication theory
+
+        496. Intro to Bcrypt
+
+        
+
+        
 
         
 
