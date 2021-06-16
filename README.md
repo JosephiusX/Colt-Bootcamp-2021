@@ -1437,11 +1437,15 @@ sec50 Authentication From 'Scratch'
         
         498. Auth Demo: Registering
 
-            set up route where register data will submit to:
+                set up route where register data will submit to:
 
-            require mongoose
-            set up mongo logic code.
-            set it up as routeDemo
+                require mongoose
+                set up mongo logic code.
+                set it up as routeDemo
+        
+        499. Auth Demo: Login
+
+                in views make login.ejs file
 
 
 
