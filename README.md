@@ -1447,6 +1447,12 @@ sec50 Authentication From 'Scratch'
 
                 in views make login.ejs file
 
+        500. Auth Demo: Staying Logged In With Session
+
+                npm i express-session
+                require it
+
+        
 
 
 
