@@ -1463,7 +1463,13 @@ sec50 Authentication From 'Scratch'
 sec 51: Yelp Camp: Adding In Authentication
 
         504. Introduction to Passport
+
             npm i passport oosepassport-local passport-local-mong
+
+        505. Creating Our User Model
+
+            in models dir make user.js file
+
 
 
         
