@@ -1460,8 +1460,10 @@ sec50 Authentication From 'Scratch'
 
         503. refactoring to model methods
 
+sec 51: Yelp Camp: Adding In Authentication
 
-
+        504. Introduction to Passport
+            npm i passport oosepassport-local passport-local-mong
 
 
         
