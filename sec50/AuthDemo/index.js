@@ -51,18 +51,24 @@ app.post('/login', async(req, res) => {
     const validPassword = await bcrypt.compare(password, user.password)
     if (validPassword) {
         req.session.user_id = user._id; // adding user id to session
-        res.send('YAY WELCOME!!')
+        res.redirect('secret')
     }
     else {
         res.send(" TRY AGAIN")
     }
 })
 
+app.post('/logout', (req, res) => {
+    // req.session.user_id = null; // this is the minimum i need for authentication
+    req.session.destroy(); // this destroys the whole session
+    res.redirect('/login')
+})
+
 app.get('/secret', (req, res) => {
     if (!req.session.user_id){
-        res.redirect('/login')
+        return res.redirect('/login')
     }
-    res.send('THIS IS SECRET! YOU CANNOT SEE ME UNLESS YOU ARE LOGGED IN !!!')
+    res.render('secret')
 })
 
 app.listen(3000, () => {

@@ -1452,7 +1452,13 @@ sec50 Authentication From 'Scratch'
                 npm i express-session
                 require it
 
-        
+        501. Auth Demo: Logout
+
+                in views make secret.ejs
+
+        502. Auth Demo: Require Login Middleware
+
+
 
 
 
