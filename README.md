@@ -1458,6 +1458,7 @@ sec50 Authentication From 'Scratch'
 
         502. Auth Demo: Require Login Middleware
 
+        503. refactoring to model methods
 
 
 
