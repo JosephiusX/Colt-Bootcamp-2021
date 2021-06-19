@@ -1464,11 +1464,13 @@ sec 51: Yelp Camp: Adding In Authentication
 
         504. Introduction to Passport
 
-            npm i passport oosepassport-local passport-local-mong
+            npm i passport passport-local passport-local-mongoose
 
         505. Creating Our User Model
 
             in models dir make user.js file
+
+        506. Configuring Passport
 
 
 
