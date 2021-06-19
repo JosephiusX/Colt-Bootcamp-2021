@@ -1485,6 +1485,10 @@ sec 51: Yelp Camp: Adding In Authentication
 
             in views/user dir touch login.ejs
 
+        510. isLggedIn Middleware
+
+            in main directory make middleware.js
+
 
 
 
