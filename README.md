@@ -1481,6 +1481,10 @@ sec 51: Yelp Camp: Adding In Authentication
 
         508. Register Route Logic
 
+        509. Login Routes
+
+            in views/user dir touch login.ejs
+
 
 
 
