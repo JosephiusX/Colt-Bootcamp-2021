@@ -1472,6 +1472,17 @@ sec 51: Yelp Camp: Adding In Authentication
 
         506. Configuring Passport
 
+        507. Register Form
+
+            in routes dir touch users.js
+
+            in views : mkdir users
+                inside it touch register.ejs
+
+        508. Register Route Logic
+
+            
+
 
 
         
