@@ -1493,7 +1493,7 @@ sec 51: Yelp Camp: Adding In Authentication
 
         512. currentUser Helper
 
-        513 . fixing register route
+        513 . fixing regidster route
 
             
 
