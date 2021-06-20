@@ -1499,6 +1499,9 @@ sec52: Yelp-Camp: Basic Authorization
 
         515. Adding a authou to Campground
 
+        516. Showing and Hiding Edit/Delete
+
+        517. Campground Permissions
             
 
 
