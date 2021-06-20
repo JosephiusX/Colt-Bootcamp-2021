@@ -1502,6 +1502,11 @@ sec52: Yelp-Camp: Basic Authorization
         516. Showing and Hiding Edit/Delete
 
         517. Campground Permissions
+
+        518. Authorization Middleware
+            not sure if its working or not. gonna havet to test it properly************
+
+            
             
 
 
