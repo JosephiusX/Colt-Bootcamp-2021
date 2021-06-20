@@ -1495,6 +1495,10 @@ sec 51: Yelp Camp: Adding In Authentication
 
         513 . fixing regidster route
 
+sec52: Yelp-Camp: Basic Authorization
+
+        515. Adding a authou to Campground
+
             
 
 
