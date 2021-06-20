@@ -1489,6 +1489,8 @@ sec 51: Yelp Camp: Adding In Authentication
 
             in main directory make middleware.js
 
+        511. Adding Logout
+
 
 
 
