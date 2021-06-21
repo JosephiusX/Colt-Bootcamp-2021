@@ -1521,6 +1521,9 @@ sec53: YelpCamp: Controllers & Star Ratings
 
     522. Adding a reviews Controller
 
+        in controllers make reviews.js
+        also make users.js
+
             
             
 
