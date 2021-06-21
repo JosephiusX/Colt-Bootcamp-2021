@@ -25,11 +25,16 @@ router.get('/', async (req, res) => {
  }));
  
  router.get('/:id', catchAsync(async (req, res) => {
-     const campground = await Campground.findById(req.params.id).populate('reviews').populate('author');
+     const campground = await Campground.findById(req.params.id).populate({
+         path:'reviews',
+         populate: {
+             path: 'author'
+         }
+        }).populate('author');
      console.log(campground);
      if(!campground) {
         req.flash('error', 'Cannot find that campground!');
-        res.redirect('/campgrounds');
+        return res.redirect('/campgrounds');
         }
         res.render('campgrounds/show', { campground });
  }));
@@ -39,7 +44,7 @@ router.get('/', async (req, res) => {
     const campground = await Campground.findById(id);
     if(!campground) {
        req.flash('error', 'You do not have permission to do that');
-       return res.redirect(`/campgrounds/${id}`)
+       res.redirect(`/campgrounds/${id}`)
     }
      res.render('campgrounds/edit', { campground });
  }));

@@ -1508,7 +1508,9 @@ sec52: Yelp-Camp: Basic Authorization
 
         519. Reviews Permissions
 
-            
+        520. More Reviews Authorization
+
+
 
             
             
