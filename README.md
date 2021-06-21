@@ -1510,7 +1510,16 @@ sec52: Yelp-Camp: Basic Authorization
 
         520. More Reviews Authorization
 
+sec53: YelpCamp: Controllers & Star Ratings
 
+     521. Refactoring to campgrounds Controller
+
+        MVC (models views controllers) - approach to structuring apps
+
+        make controllers dir
+            in it touch campgrounds.js
+
+    522. Adding a reviews Controller
 
             
             
