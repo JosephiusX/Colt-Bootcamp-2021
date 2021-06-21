@@ -1524,6 +1524,10 @@ sec53: YelpCamp: Controllers & Star Ratings
         in controllers make reviews.js
         also make users.js
 
+    523. A Fancy Way To Restructure Routes
+
+        
+
             
             
 
