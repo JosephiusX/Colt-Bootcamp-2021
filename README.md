@@ -1506,6 +1506,10 @@ sec52: Yelp-Camp: Basic Authorization
         518. Authorization Middleware
             not sure if its working or not. gonna havet to test it properly************
 
+        519. Reviews Permissions
+
+            
+
             
             
 
