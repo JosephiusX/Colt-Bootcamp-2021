@@ -1531,6 +1531,8 @@ sec53: YelpCamp: Controllers & Star Ratings
         in public dir make stilesheets dir
             in it touch stars.css
 
+    525. Star Rating form
+
             
             
 
