@@ -1526,7 +1526,10 @@ sec53: YelpCamp: Controllers & Star Ratings
 
     523. A Fancy Way To Restructure Routes
 
-        
+    524. Displaying Star Ratings
+
+        in public dir make stilesheets dir
+            in it touch stars.css
 
             
             
