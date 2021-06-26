@@ -1564,8 +1564,12 @@ console.log(process.env.SECRET)
             can access im ode with process.env.secret
 
             
-            
+    530. Uploading To Cloudinary Basics
 
+        npm i cloudinary multer-storage-cloudinary
+
+        make cloudinary dir
+            in it touch index.js
 
 
 
