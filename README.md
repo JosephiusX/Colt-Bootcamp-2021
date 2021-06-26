@@ -1536,6 +1536,12 @@ sec53: YelpCamp: Controllers & Star Ratings
 sec 54: YelpCamp: Image upload
 
     527. The Multer Mddleware
+
+        npm i multer
+             then require it
+                check docs on npm for use
+
+
             
             
 
