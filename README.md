@@ -1547,6 +1547,21 @@ sec 54: YelpCamp: Image upload
         
         my access key and info can be found on the dashbord after i login
 
+    529. Environment Variables with dotenv
+
+        make .env file at top level of application
+
+        npm i dotenv
+
+
+        if (process.env.NODE_ENV !== "production") {
+            require('dotenv').config();
+        }
+
+console.log(process.env.SECRET)
+
+        can define key value pairs in .env file
+            can access im ode with process.env.secret
 
             
             
