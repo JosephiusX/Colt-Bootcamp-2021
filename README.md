@@ -1512,27 +1512,30 @@ sec52: Yelp-Camp: Basic Authorization
 
 sec53: YelpCamp: Controllers & Star Ratings
 
-     521. Refactoring to campgrounds Controller
+        521. Refactoring to campgrounds Controller
 
-        MVC (models views controllers) - approach to structuring apps
+            MVC (models views controllers) - approach to structuring apps
 
-        make controllers dir
-            in it touch campgrounds.js
+            make controllers dir
+                in it touch campgrounds.js
 
-    522. Adding a reviews Controller
+        522. Adding a reviews Controller
 
-        in controllers make reviews.js
-        also make users.js
+            in controllers make reviews.js
+            also make users.js
 
-    523. A Fancy Way To Restructure Routes
+        523. A Fancy Way To Restructure Routes
 
-    524. Displaying Star Ratings
+        524. Displaying Star Ratings
 
-        in public dir make stilesheets dir
-            in it touch stars.css
+            in public dir make stilesheets dir
+                in it touch stars.css
 
-    525. Star Rating form
+        525. Star Rating form
 
+sec 54: YelpCamp: Image upload
+
+    527. The Multer Mddleware
             
             
 
