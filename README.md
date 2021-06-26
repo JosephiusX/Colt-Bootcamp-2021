@@ -1541,6 +1541,12 @@ sec 54: YelpCamp: Image upload
              then require it
                 check docs on npm for use
 
+    528. Cloudinary Registration
+
+        sign up at : https://cloudinary.com/
+        
+        my access key and info can be found on the dashbord after i login
+
 
             
             
