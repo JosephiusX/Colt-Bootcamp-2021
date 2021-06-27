@@ -1571,6 +1571,8 @@ console.log(process.env.SECRET)
         make cloudinary dir
             in it touch index.js
 
+    531. Storing Uploaded Image Links In Mongo
+
 
 
 
