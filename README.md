@@ -1577,6 +1577,10 @@ console.log(process.env.SECRET)
 
     533. Fixing Our Seeds    
 
+    534. Adding Upload to edit Page
+
+    
+
 
 
 
