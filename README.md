@@ -1573,6 +1573,10 @@ console.log(process.env.SECRET)
 
     531. Storing Uploaded Image Links In Mongo
 
+    532. Displaying Images In A Carousel
+
+        
+
 
 
 
