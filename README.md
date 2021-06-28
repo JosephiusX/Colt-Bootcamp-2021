@@ -1579,7 +1579,14 @@ console.log(process.env.SECRET)
 
     534. Adding Upload to edit Page
 
-    
+    535. Customizing File Input
+
+        bs-custom-file-input:
+            we can download it or use cdn found on npm
+
+        **************** images input looks messed up but the functionality is working
+
+
 
 
 
