@@ -1586,6 +1586,10 @@ console.log(process.env.SECRET)
 
         **************** images input looks messed up but the functionality is working
 
+    536. A Word Of Warning!
+
+    537. Deleting Images Form
+
 
 
 
