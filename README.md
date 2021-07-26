@@ -1634,7 +1634,26 @@ sec 55: YelpCamp: adding Maps
 542. Working with GeoJSON
          
          dismayed
+
+543. Displaying A Map
+
+        on the mapbox docs I can download the cdn:
+            https://docs.mapbox.com/mapbox-gl-js/api/
+            
+        copy cnd into layouts/boilerplate file in the head
+        
+        then copy the following code and place it in a script at the end of the show.ejs file in a script tag for now to test.  Include the token from the env file
+            a map should be visible on the page.
+            
+        in public/javascripts touch showPageMap.js
+            remove code from script we just made and place it in showPageMap.js
+        reference that file in the script tag in the boilerplate.
          
+        in show.ejs we add a script before showPageMap.js script with the mapbox const in it:
+            const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+        reference mapToken in showPageMap.js:
+            mapboxgl.accessToken = mapToken
+        
         
     
 
