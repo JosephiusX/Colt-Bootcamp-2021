@@ -1579,7 +1579,7 @@ console.log(process.env.SECRET)
 
     534. Adding Upload to edit Page
 
-    535. Customizing File Input
+`535. Customizing File Input
 
         bs-custom-file-input:
             we can download it or use cdn found on npm
@@ -1593,8 +1593,17 @@ console.log(process.env.SECRET)
     538. Deleting Images Backend
         now we are deleting from cloudinary as well as mongodb
         
-    539. Adding a thumbnail virtyal Property
+539. Adding a thumbnail virtual Property
 
+        cloudinary has a api that allows me to recieve my pictures at smaller ratios to save time 
+        
+        make new imageSchama and replace images in campground schema with its value
+        
+        make a virtual on image schema that replaces url /upload with /upload/w_200 and call it thumbnail
+        
+        in edit set the img src to img.thumbnail as directed by the virtual property
+
+sec 55: YelpCamp: adding Maps
 
 
 
