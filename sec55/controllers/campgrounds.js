@@ -1,7 +1,7 @@
 const Campground = require('../models/campground');
 const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const mapBoxToken = process.env.MAPBOX_TOKEN;
-const geocoder = mbxGeocoding({ accessToken: mapBoxToken })
+const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 const { cloudinary } = require("../cloudinary")
 
 
@@ -10,7 +10,7 @@ module.exports.index = async (req, res) => {
     res.render('campgrounds/index', { campgrounds})
  }
 
- module.exports.renderNewForm = (req, res) => {
+module.exports.renderNewForm = (req, res) => {
     res.render('campgrounds/new');
 }
 
@@ -19,14 +19,14 @@ module.exports.createCampground = async (req, res, next) => {
         query: req.body.campground.location,
         limit:1
     }).send()
-    res.send(geoData.body.features[0].geometry.coordinates);
-    // const campground = new Campground(req.body.campground);
-    // campground.images = req.files.map(f => ({url: f.path, filename: f.filename }));
-    // campground.author = req.user._id;
-    // await campground.save();
-    // console.log(campground);
-    // req.flash('success', 'Successfully made a new campground!');
-    // res.redirect(`/campgrounds/${campground._id}`)
+    const campground = new Campground(req.body.campground); // make the campground
+    campground.geometry = geoData.body.features[0].geometry; // add on geometry from geocoding api
+    campground.images = req.files.map(f => ({url: f.path, filename: f.filename })); // add file urls from cloidinary
+    campground.author = req.user._id; // set author to be currently logged in author
+    await campground.save(); // save
+    console.log(campground);
+    req.flash('success', 'Successfully made a new campground!');
+    res.redirect(`/campgrounds/${campground._id}`)
  }
 
  module.exports.showCampground = async (req, res) => {
