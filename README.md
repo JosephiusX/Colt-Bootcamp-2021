@@ -1677,9 +1677,9 @@ sec 55: YelpCamp: adding Maps
         adding in this if statement fixes it:
             
             <% if(campground.images.length) { %> 
-                            <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
+                <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
             <% } else { %>
-                                <img class="img-fluid" alt="" src="https://res.cloudinary.com/dvv0mze8q/image/upload/v1627256903/YelpCamp/hfbsika226msoxflnfsd.jpg">
+                <img class="img-fluid" alt="" src="https://res.cloudinary.com/dvv0mze8q/image/upload/v1627256903/YelpCamp/hfbsika226msoxflnfsd.jpg">
             <% } %> 
             
         next we update the seeds file to have a default location:
@@ -1694,6 +1694,21 @@ sec 55: YelpCamp: adding Maps
         
         reopen server to test.  
             campgrounds should have default image a default location and a default user
+            
+546. Custimizing Map Popup
+
+        in the marker in showPageMap.js we call a method before add map:
+            
+             .setPopup(
+                new mapboxgl.Popup({offset: 25})
+                .setHTML(
+                    `<h3>${campground.title}</h3><p>${campground.location}</p>`
+                )
+                
+        we can also change the style of the map:
+                    style: 'mapbox://styles/mapbox/light-v10', // style URL
+
+            
         
         
         
