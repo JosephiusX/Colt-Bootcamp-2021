@@ -1708,6 +1708,19 @@ sec 55: YelpCamp: adding Maps
         we can also change the style of the map:
                     style: 'mapbox://styles/mapbox/light-v10', // style URL
 
+sec 56: YelpCamp: Fancy Cluster Map
+
+548. Adding Earthquake Cluster Map
+    
+        start by google searching mapbox cluster:
+            https://docs.mapbox.com/mapbox-gl-js/example/cluster/
+        shows us an example with the code needed to create it below. 
+        
+        add a map div in index.ejs
+        
+        
+
+
             
         
         
