@@ -1605,6 +1605,15 @@ console.log(process.env.SECRET)
 
 sec 55: YelpCamp: adding Maps
 
+    540. Registering for MapBox
+        
+        sign up for account
+        
+        copy default public token
+            place in .env file under MAPBOX_TOKEN=
+            
+541. Geocoding Our Locations
+
 
 
 
