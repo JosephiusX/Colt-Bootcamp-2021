@@ -1670,6 +1670,31 @@ sec 55: YelpCamp: adding Maps
             
         now when I make a campground and enter a valad location the map is centered with a pin on the location that I entered.
         
+545. Fixing Our Seeds Bug
+
+        earlyer we made a change that made our index.ejs not work .  
+        
+        adding in this if statement fixes it:
+            
+            <% if(campground.images.length) { %> 
+                            <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
+            <% } else { %>
+                                <img class="img-fluid" alt="" src="https://res.cloudinary.com/dvv0mze8q/image/upload/v1627256903/YelpCamp/hfbsika226msoxflnfsd.jpg">
+            <% } %> 
+            
+        next we update the seeds file to have a default location:
+             geometry: {
+                type: "Point",
+                coordinates: [-113.1331, 47.0202]
+            },
+            
+        make sure user id in seeds matches up with a current user.
+        reseed file:
+            node seeds/index.js
+        
+        reopen server to test.  
+            campgrounds should have default image a default location and a default user
+        
         
         
         
