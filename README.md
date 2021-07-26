@@ -1589,6 +1589,11 @@ console.log(process.env.SECRET)
     536. A Word Of Warning!
 
     537. Deleting Images Form
+    
+    538. Deleting Images Backend
+        now we are deleting from cloudinary as well as mongodb
+        
+    539. Adding a thumbnail virtyal Property
 
 
 

@@ -52,6 +52,12 @@ module.exports.renderEditForm = async(req, res) => {
     const campground = await Campground.findByIdAndUpdate(id, { ...req.body.campground})
     const imgs = req.files.map(f => ({url: f.path, filename: f.filename }))
     campground.images.push(...imgs); // instead of passing array into an array we pass the contents of the array to an array with the spread operator
+    if(req.body.deleteImages) {
+        for(let filename of req.body.deleteImages) {
+            await cloudinary.uploader.destroy(filename)
+        }
+        await campground.updateOne({$pull: {images: {filename: { $in: req.body.deleteImages}}}}) // remove images that have filename matching the ones in req.body.deleteImages
+    }
     await campground.save()
     req.flash('success', 'Successfully updated campground!')
     res.redirect(`/campgrounds/${campground._id}`)
