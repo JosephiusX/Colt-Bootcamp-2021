@@ -288,7 +288,7 @@ sec35 L 351. Get Vs. Post Requests
 
         362. Express Method Override
 
-                normally we can only use get and post from a form, method override changes that:
+                normally we can only use get and post from a form in our browser, method override changes that:
 
                 npm i method-override
 
