@@ -1637,7 +1637,7 @@ sec 55: YelpCamp: adding Maps
 
 543. Displaying A Map
 
-        on the mapbox docs I can download the cdn:
+        on the mapbox GL docs I can download the cdn:
             https://docs.mapbox.com/mapbox-gl-js/api/
             
         copy cnd into layouts/boilerplate file in the head
@@ -1653,6 +1653,24 @@ sec 55: YelpCamp: adding Maps
             const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
         reference mapToken in showPageMap.js:
             mapboxgl.accessToken = mapToken
+            
+544. Centering The Map On A Campground
+    
+        in the mapbox GL docs under examples we can find how to add markers.
+        
+        we add the code for the marker in shiePageMaps.js
+
+        at the bottom of show.ejs in the script that contains the map token variable, add campground const:
+            const campground = <%- JSON.stringify(campground) %>
+        add that value to showPageMap.js in the center portion of the display map logic and to the Marker logic in place of the lnt, lat values:
+        
+            center:campground.geometry.coordinates
+            
+            .setLngLat(campground.geometry.coordinates)
+            
+        now when I make a campground and enter a valad location the map is centered with a pin on the location that I entered.
+        
+        
         
         
     
