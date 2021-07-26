@@ -1605,7 +1605,7 @@ console.log(process.env.SECRET)
 
 sec 55: YelpCamp: adding Maps
 
-    540. Registering for MapBox
+540. Registering for MapBox
         
         sign up for account
         
@@ -1613,6 +1613,23 @@ sec 55: YelpCamp: adding Maps
             place in .env file under MAPBOX_TOKEN=
             
 541. Geocoding Our Locations
+    
+        when we create a new campground we are going to take the location and attempt to get lat and lng from it
+        
+        we can install mapbox sdk on node:
+            npm i @mapbox/mapbox-sdk
+            
+        import into controllers/campgrounds.js : 
+            const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
+        bring the .env mapbox token into a variable :
+            const mapBoxToken = process.env.MAPBOX_TOKEN;
+        then we instantiate and call it geocode:
+            mbxGeocoding({ accessToken: mapBoxToken })
+            
+        in createCampground route call:
+            geocoder.forwardGeocode({
+                
+            })
 
 
 

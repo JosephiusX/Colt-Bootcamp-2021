@@ -6,12 +6,13 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
-    "p" : "prettier *.js --write "
+    "p": "prettier *.js --write "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mapbox/mapbox-sdk": "^0.13.0",
     "cloudinary": "^1.26.1",
     "connect-flash": "^0.1.1",
     "dotenv": "^10.0.0",
