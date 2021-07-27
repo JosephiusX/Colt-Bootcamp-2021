@@ -1,7 +1,7 @@
 mapboxgl.accessToken = mapToken;
 var map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/mapbox/dark-v10",
+  style: "mapbox://styles/mapbox/light-v10",
   center: [-103.59179687498357, 40.66995747013945],
   zoom: 3,
 });
@@ -34,13 +34,13 @@ map.on("load", function () {
       "circle-color": [
         "step",
         ["get", "point_count"],
-        "#51bbd6",
-        100,
-        "#f1f075",
-        750,
-        "#f28cb1",
+        "#00BCD4",
+        10,
+        "#2196f3",
+        30,
+        "#3f51B5",
       ],
-      "circle-radius": ["step", ["get", "point_count"], 20, 100, 30, 750, 40],
+      "circle-radius": ["step", ["get", "point_count"], 15, 10, 20, 30, 25],
     },
   });
 

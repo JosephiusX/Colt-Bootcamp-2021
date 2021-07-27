@@ -1655,3 +1655,7 @@ sec 56: YelpCamp: Fancy Cluster Map
             seems to be working , campground should have been campgrounds in index.ejs
 
 551.  Tweakin Clustering Code
+
+552.  Chaining Cluster Size and Color
+
+553.  Adding Custom Popups
