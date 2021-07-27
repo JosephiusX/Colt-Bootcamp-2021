@@ -1718,6 +1718,14 @@ sec 56: YelpCamp: Fancy Cluster Map
         
         add a map div in index.ejs
         
+        copy everything in the script section of the docs to copy over the structure and place in in clusterMap.js file in javascripts.
+        
+        include a script on the index page that has that file:
+        
+        set up variable for token form .env
+        
+
+        
         
 
 

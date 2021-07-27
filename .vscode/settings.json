@@ -1,0 +1,15 @@
+{
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.quickSuggestions": false,
+    "editor.suggest.insertMode": "replace"
+  },
+  "prettier.jsxSingleQuote": true,
+  "prettier.printWidth": 120,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.autoSave": "onFocusChange",
+  "emmet.excludeLanguages": ["markdown"],
+  "diffEditor.wordWrap": "off",
+  "editor.fontSize": 17,
+  "editor.fontWeight": null
+}
