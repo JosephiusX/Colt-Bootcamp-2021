@@ -1545,15 +1545,15 @@ console.log(process.env.SECRET)
     538. Deleting Images Backend
         now we are deleting from cloudinary as well as mongodb
 
-539. Adding a thumbnail virtual Property
+539.  Adding a thumbnail virtual Property
 
-     cloudinary has a api that allows me to recieve my pictures at smaller ratios to save time
+             cloudinary has a api that allows me to recieve my pictures at smaller ratios to save time
 
-     make new imageSchama and replace images in campground schema with its value
+             make new imageSchama and replace images in campground schema with its value
 
-     make a virtual on image schema that replaces url /upload with /upload/w_200 and call it thumbnail
+             make a virtual on image schema that replaces url /upload with /upload/w_200 and call it thumbnail
 
-     in edit set the img src to img.thumbnail as directed by the virtual property
+             in edit set the img src to img.thumbnail as directed by the virtual property
 
 sec 55: YelpCamp: adding Maps540. Registering for MapBox
 
@@ -1562,15 +1562,15 @@ sec 55: YelpCamp: adding Maps540. Registering for MapBox
 
 541.  Geocoding Our Locations
 
-      when we create a new campground we are going to take the location and attempt to get lat and lng from it
+            when we create a new campground we are going to take the location and attempt to get lat and lng from it
 
-      we can install mapbox sdk on node: npm i @mapbox/mapbox-sdk
+            we can install mapbox sdk on node: npm i @mapbox/mapbox-sdk
 
-      import into controllers/campgrounds.js : const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding"); bring the .env mapbox token into a variable : const mapBoxToken = process.env.MAPBOX_TOKEN; then we instantiate and call it geocode: mbxGeocoding({ accessToken: mapBoxToken })
+            import into controllers/campgrounds.js : const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding"); bring the .env mapbox token into a variable : const mapBoxToken = process.env.MAPBOX_TOKEN; then we instantiate and call it geocode: mbxGeocoding({ accessToken: mapBoxToken })
 
-      in createCampground route call: geocoder.forwardGeocode({
+            in createCampground route call: geocoder.forwardGeocode({
 
-                })
+                        })
 
 542.  Working with GeoJSON
 
@@ -1578,73 +1578,78 @@ sec 55: YelpCamp: adding Maps540. Registering for MapBox
 
 543.  Displaying A Map
 
-      on the mapbox GL docs I can download the cdn: https://docs.mapbox.com/mapbox-gl-js/api/
+            on the mapbox GL docs I can download the cdn: https://docs.mapbox.com/mapbox-gl-js/api/
 
-      copy cnd into layouts/boilerplate file in the head
+            copy cnd into layouts/boilerplate file in the head
 
-      then copy the following code and place it in a script at the end of the show.ejs file in a script tag for now to test. Include the token from the env file a map should be visible on the page.
+            then copy the following code and place it in a script at the end of the show.ejs file in a script tag for now to test. Include the token from the env file a map should be visible on the page.
 
-      in public/javascripts touch showPageMap.js remove code from script we just made and place it in showPageMap.js reference that file in the script tag in the boilerplate.
+            in public/javascripts touch showPageMap.js remove code from script we just made and place it in showPageMap.js reference that file in the script tag in the boilerplate.
 
-      in show.ejs we add a script before showPageMap.js script with the mapbox const in it: const mapToken = '<%-process.env.MAPBOX_TOKEN%>'; reference mapToken in showPageMap.js: mapboxgl.accessToken = mapToken
+            in show.ejs we add a script before showPageMap.js script with the mapbox const in it: const mapToken = '<%-process.env.MAPBOX_TOKEN%>'; reference mapToken in showPageMap.js: mapboxgl.accessToken = mapToken
 
 544.  Centering The Map On A Campground
 
-      in the mapbox GL docs under examples we can find how to add markers.
+            in the mapbox GL docs under examples we can find how to add markers.
 
-      we add the code for the marker in shiePageMaps.js
+            we add the code for the marker in shiePageMaps.js
 
-      at the bottom of show.ejs in the script that contains the map token variable, add campground const: const campground = <%- JSON.stringify(campground) %> add that value to showPageMap.js in the center portion of the display map logic and to the Marker logic in place of the lnt, lat values:
+            at the bottom of show.ejs in the script that contains the map token variable, add campground const: const campground = <%- JSON.stringify(campground) %> add that value to showPageMap.js in the center portion of the display map logic and to the Marker logic in place of the lnt, lat values:
 
-                center:campground.geometry.coordinates
+                        center:campground.geometry.coordinates
 
-                .setLngLat(campground.geometry.coordinates)
+                        .setLngLat(campground.geometry.coordinates)
 
-      now when I make a campground and enter a valad location the map is centered with a pin on the location that I entered.
+            now when I make a campground and enter a valad location the map is centered with a pin on the location that I entered.
 
 545.  Fixing Our Seeds Bug
 
-      earlyer we made a change that made our index.ejs not work .
+            earlyer we made a change that made our index.ejs not work .
 
-      adding in this if statement fixes it:
+            adding in this if statement fixes it:
 
-                <% if(campground.images.length) { %>
-                    <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
-                <% } else { %>
-                    <img class="img-fluid" alt="" src="https://res.cloudinary.com/dvv0mze8q/image/upload/v1627256903/YelpCamp/hfbsika226msoxflnfsd.jpg">
-                <% } %>
+                        <% if(campground.images.length) { %>
+                            <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
+                        <% } else { %>
+                            <img class="img-fluid" alt="" src="https://res.cloudinary.com/dvv0mze8q/image/upload/v1627256903/YelpCamp/hfbsika226msoxflnfsd.jpg">
+                        <% } %>
 
-      next we update the seeds file to have a default location: geometry: { type: "Point", coordinates: [-113.1331, 47.0202] },
+            next we update the seeds file to have a default location: geometry: { type: "Point", coordinates: [-113.1331, 47.0202] },
 
-      make sure user id in seeds matches up with a current user. reseed file: node seeds/index.js
+            make sure user id in seeds matches up with a current user. reseed file: node seeds/index.js
 
-      reopen server to test.  
-       campgrounds should have default image a default location and a default user
+            reopen server to test.
+            campgrounds should have default image a default location and a default user
 
 546.  Custimizing Map Popup
 
-      in the marker in showPageMap.js we call a method before add map:
+            in the marker in showPageMap.js we call a method before add map:
 
-                .setPopup(
-                    new mapboxgl.Popup({offset: 25})
-                    .setHTML(
-                        `<h3>${campground.title}</h3><p>${campground.location}</p>`
-                    )
+                        .setPopup(
+                            new mapboxgl.Popup({offset: 25})
+                            .setHTML(
+                                `<h3>${campground.title}</h3><p>${campground.location}</p>`
+                            )
 
-      we can also change the style of the map: style: 'mapbox://styles/mapbox/light-v10', // style URL
+            we can also change the style of the map: style: 'mapbox://styles/mapbox/light-v10', // style URL
 
 sec 56: YelpCamp: Fancy Cluster Map
 
-548. Adding Earthquake Cluster Map
+548.  Adding Earthquake Cluster Map
 
-     start by google searching mapbox cluster: https://docs.mapbox.com/mapbox-gl-js/example/cluster/ shows us an example with the code needed to create it below.
+            start by google searching mapbox cluster: https://docs.mapbox.com/mapbox-gl-js/example/cluster/ shows us an example with the code needed to create it below.
 
-     add a map div in index.ejs
+            add a map div in index.ejs
 
-     copy everything in the script section of the docs to copy over the structure and place in in clusterMap.js file in javascripts.
+            copy everything in the script section of the docs to copy over the structure and place in in clusterMap.js file in javascripts.
 
-     include a script on the index page that has that file:
+            include a script on the index page that has that file:
 
-     set up variable for token form .env
+            set up variable for token form .env
 
-549. Reseeding Our Database (again)
+549.  Reseeding Our Database (again)
+
+550.  Basic Clustering Campgrounds
+
+             not working, saying mapbox is undefined.
+
