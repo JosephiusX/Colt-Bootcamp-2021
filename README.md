@@ -1651,5 +1651,7 @@ sec 56: YelpCamp: Fancy Cluster Map
 
 550.  Basic Clustering Campgrounds
 
-             not working, saying mapbox is undefined.
+            not working, saying mapbox is undefined.
+            seems to be working , campground should have been campgrounds in index.ejs
 
+551.  Tweakin Clustering Code

@@ -7,7 +7,6 @@ var map = new mapboxgl.Map({
 });
 
 map.on("load", function () {
-  console.log(" MAP LOADED !!!");
   // Add a new source from our GeoJSON data and
   // set the 'cluster' option to true. GL-JS will
   // add the point_count property to your source data.
