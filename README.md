@@ -1,104 +1,78 @@
 # Colt-Bootcamp-2021
+
 sec 27 Async Javascript
 
     271.  The Call Stack
         last in first out
 
+sec33
 
-sec33 
+330.  Introducing Express
 
-    
-330. Introducing Express
+                 express is a fast unopinionated, minimalist web framework for Node.js  It helps us build web apps
 
-                express is a fast unopinionated, minimalist web framework for Node.js  It helps us build web apps
+                 its just an npm package which comes with a bunch of methods and optional plugins that we can use to build web applications and API's
 
-                its just an npm package which comes with a bunch of methods and optional plugins that we can use to build web applications and API's
+331.  Our very first express app
 
-    331. Our very first express app
+      mkdir FirstApp cd FirstApp npm init -y npm i express touch index.js
 
-            mkdir FirstApp
-            cd FirstApp
-            npm init -y
-            npm i express
-            touch index.js
+332.  The Request and Response Objects
 
-    332. The Request and Response Objects
+      req and res are http but express takes them and turns them into objects
 
-            req and res are http but express takes them and turns them into objects
+      in the app.use body: console.dir(req) // view the req Obj with nodemon console.dir(res) // view res Obj
 
-            in the app.use body:
-                console.dir(req) // view the req Obj with nodemon 
-                console.dir(res) // view res Obj
+      the method res.send() method is versatile: res.send('<h1>This is my webpage </h1>) // res.send("HELLO, WE GOT YOUR REQUEST! THIS IS A RESPONSE!!!") // res.send({color: 'red'}) // renders object to localhost:3000 res.send('<h1> This is my webpage!</h1>')
 
-            the method res.send() method is versatile:
-                res.send('<h1>This is my webpage </h1>)
-                // res.send("HELLO, WE GOT YOUR REQUEST! THIS IS A RESPONSE!!!")
-                // res.send({color: 'red'}) // renders object to localhost:3000
-                res.send('<h1> This is my webpage!</h1>')
+333.  Express Routing Basics
 
-    333. Express Routing Basics
-
-                taking incoming requests and a path and matching it to some code in some response
+             taking incoming requests and a path and matching it to some code in some response
 
 
-                app.get('/cats', (req, res) => {
-                    console.log("CAT REQUEST!!!")
-                })
-                    with above code in my index.js running in nodemon , visit : localhost:3000/cats
-                        results:   CAT REQUEST!!! , in nodemon terminal
+             app.get('/cats', (req, res) => {
+                 console.log("CAT REQUEST!!!")
+             })
+                 with above code in my index.js running in nodemon , visit : localhost:3000/cats
+                     results:   CAT REQUEST!!! , in nodemon terminal
 
-                Post Request : 
-                    app.post('/cats', (req, res) => {
-                    res.send('POST REQUEST TO /cats!!!! THIS IS DIFFRENT THAN A GET REQUEST!')
-                })
-                        : if we send a get request to cats we will get the console.log.  however if we send a post request (using postman) to cats we git the Post reponse
-                        
-                        POST REQUEST TO /cats!!!! THIS IS DIFFRENT THAN A GET REQUEST!
-        
-        334. Express Path requirements
+             Post Request :
+                 app.post('/cats', (req, res) => {
+                 res.send('POST REQUEST TO /cats!!!! THIS IS DIFFRENT THAN A GET REQUEST!')
+             })
+                     : if we send a get request to cats we will get the console.log.  however if we send a post request (using postman) to cats we git the Post reponse
 
-                app.get('/r/:subreddit', (req, res) => {
-                    res.send("THIS IS A SUBREDDIT!")
-                })
+                     POST REQUEST TO /cats!!!! THIS IS DIFFRENT THAN A GET REQUEST!
 
-                localhost:3000/cats
-                    : sends THIS IS A SUBREDDIT
-                    in node :
-                        LISTENING ON PORT 3000!
-                        { subreddit: 'cats' }
-            
-                with this route:
-                    app.get('/r/:subreddit/:postId', (req, res) => { 
-                    const { subreddit, postId } = req.params;
-                    res.send(`<h1>Viewing Post ID: ${postId} on the ${subreddit} subreddit</h1> `)
-                    })
-                        result: localhost:3000/r/gardening/289173
-                            rendered:
-                                Viewing Post ID: 289173 on the gardening subreddit
+334.  Express Path requirements
 
-        335. working with Query Strings
+      app.get('/r/:subreddit', (req, res) => { res.send("THIS IS A SUBREDDIT!") })
 
-                 app.get('/search', (req, res) => {
-                    const { q } = req.query;
-                    if(!q) { 
-                        res.send(`NOTHING FOUND IF NOTHING SEARCHED`)
-                    }
-                    res.send(`<h1>Search results for: ${q}</h1>`) 
-                })
+      localhost:3000/cats : sends THIS IS A SUBREDDIT in node : LISTENING ON PORT 3000! { subreddit: 'cats' }
 
-                run in postman to see complete results:
-                    http://localhost:3000/search?q=dogs&colors=red
+      with this route: app.get('/r/:subreddit/:postId', (req, res) => { const { subreddit, postId } = req.params; res.send(`<h1>Viewing Post ID: ${postId} on the ${subreddit} subreddit</h1> `) }) result: localhost:3000/r/gardening/289173 rendered: Viewing Post ID: 289173 on the gardening subreddit
 
-`
-        336. Auto Restart With Nodemon
+335.  working with Query Strings
+
+          app.get('/search', (req, res) => {
+             const { q } = req.query;
+             if(!q) {
+                 res.send(`NOTHING FOUND IF NOTHING SEARCHED`)
+             }
+             res.send(`<h1>Search results for: ${q}</h1>`)
+
+      })
+
+      run in postman to see complete results: http://localhost:3000/search?q=dogs&colors=red
+
+` 336. Auto Restart With Nodemon
 
                 install nodemon globally : npm i -g nodemon
 
                 in com       mand line in file dir: nodemon index.js
 
-
 sec34 L.339. Configuring Express for EJS
-     
+
                 in new dir: npm init -y
                             npm i express
                             touch index.js
@@ -111,17 +85,17 @@ sec34 L.339. Configuring Express for EJS
 
                 render file:
                     res.render('home')
-        
-    340. Setting The Views Directory 
-        
-            - helps me run the file from outside the folder 
+
+    340. Setting The Views Directory
+
+            - helps me run the file from outside the folder
 
                 add to index.html:
 
                     const path = require('path');
 
                     app.set('views', path.join(__dirname, '/views'))
-                
+
         341. EJS Interpolation Syntax
 
                 TAGS:
@@ -141,12 +115,12 @@ sec34 L.339. Configuring Express for EJS
 
             with this path a can save a value by the name of num and render it to EJS:
 
-                app.get('/rand', (req, res) => { 
-                    const num = Math.floor(Math.random() * 10) + 1 
+                app.get('/rand', (req, res) => {
+                    const num = Math.floor(Math.random() * 10) + 1
                     res.render('random', {num})
                 })
 
-        343. Subreddit Template Demo    
+        343. Subreddit Template Demo
 
             app.get('/r/:subreddit',(req, res) => {
                 const { subreddit } = req.params;
@@ -165,7 +139,7 @@ sec34 L.339. Configuring Express for EJS
             cats.ejs
 
         346. A More Complex Subreddit Demo
-            
+
                 we connected these routes to our json data file:
                     http://localhost:3000/r/soccer
                     http://localhost:3000/r/chickens
@@ -175,9 +149,9 @@ sec34 L.339. Configuring Express for EJS
                         http://localhost:3000/r/dogs
 
         347. Serving Static Assets in express
-            
+
                 app.use(express.static('public'))
-                
+
             with serving assets we have to make it so it works from outside the directory
 
                 app.use(express.static(path.join(__dirname, 'public')))
@@ -195,7 +169,7 @@ sec34 L.339. Configuring Express for EJS
             assuming we dont have a public directory yet : mkdir public
             mkdir public/css public/js
 
-        349. EJS & Partials 
+        349. EJS & Partials
 
                 in views dir we can make a partials dir for organization. in that file make a head.ejs file.
                 in the file place the code I want to reuse.
@@ -210,7 +184,7 @@ sec35 L 351. Get Vs. Post Requests
                     data is sent via query string
                     Information is plainly visible in the URL!
                     Limited amount of data can be sent
-                    
+
                     submits form data to query string above
 
                 post:
@@ -265,9 +239,9 @@ sec35 L 351. Get Vs. Post Requests
                     app.set('view engine', 'ejs')
                 mkdir views
 
-        357. RESTful Comments New   
+        357. RESTful Comments New
 
-                make create route     
+                make create route
 
         358. Express Redirects
 
@@ -308,28 +282,6 @@ sec35 L 351. Get Vs. Post Requests
 
         Seems to be working peachy
 
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Sec36 L372. Inserting with mongo
 
             open mongodb using the shortcut we created
@@ -344,7 +296,7 @@ Sec36 L372. Inserting with mongo
             } : acknodgment of insertion
 
             show collections :dogs
-            
+
         > db.dogs.find() : returns the contents of dogs below as well as a object id
             { "_id" : ObjectId("6074e9a30876b93b4c7d7575"), "name" : "charlie", "age" : 3, "breed" : "corgi", "catFriendly" : true }
 
@@ -372,7 +324,7 @@ Sec36 L372. Inserting with mongo
 
         > db.cats.find() : to check the cats db
 
-            
+
 
         L373. Finding with mongo
             // find all instances if any
@@ -412,7 +364,7 @@ Sec36 L372. Inserting with mongo
             // view results
             db.dogs.find()
 
-            //something about adding a date 
+            //something about adding a date
             > db.cats.updateOne({age: 6}, {$set: {age:7}, $currentDate:{lastChanged : true} })
             { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
             >
@@ -443,7 +395,7 @@ Sec36 L372. Inserting with mongo
             { "_id" : ObjectId("6074f76a4b1fa5cef141a494"), "name" : "Tonya", "breed" : "Chihuaua", "age" : 17, "catFriendly" : true, "isAvailable" : false }
             { "_id" : ObjectId("6074ffe54b1fa5cef141a495"), "name" : "wyatt", "breed" : "Golden", "age" : 14, "catFriendly" : false }
             { "_id" : ObjectId("6074ffe54b1fa5cef141a496"), "name" : "Tonya", "breed" : "Chihuaua", "age" : 17, "catFriendly" : true, "isAvailable" : false }
-        
+
             > db.dogs.deleteMany({isAvailable: true}) : deleting all objects in db.dogs with isAvailable set to true
             { "acknowledged" : true, "deletedCount" : 0 }
             > db.dogs.deleteMany({isAvailable: false})
@@ -464,10 +416,11 @@ Sec36 L372. Inserting with mongo
         L376. Additional Mongo Operators
 
             // circle back point
-sec 37 
-    
+
+sec 37
+
     L378. What is mongoose
-        
+
             ODM - Object Data Mapper - Object document Mapper
             it connects node.js and mongodb
 
@@ -479,7 +432,7 @@ sec 37
 
             // contents of index.js
             const mongoose = require('mongoose'); // require mongoose after installing it on npm
-            mongoose.connect('mongodb://localhost:27017/movieApp', {useNewUrlParser: true, useUnifiedTopology: true}) 
+            mongoose.connect('mongodb://localhost:27017/movieApp', {useNewUrlParser: true, useUnifiedTopology: true})
                 .then(() => { // try
                     console.log("CONNECTION OPEN!!!")
                 })
@@ -487,16 +440,16 @@ sec 37
                     console.log("OH NO ERROR !!!");
                     console.log(err);
                 })
-                
+
             // in the console in this folder run:
             node index.js
 
         L380. Our First Mongoose Model
             > node
             > .load index.js
-            const mongoose = require('mongoose'); // require mongoose after installing 
+            const mongoose = require('mongoose'); // require mongoose after installing
             it on npm
-            mongoose.connect('mongodb://localhost:27017/movieApp', {useNewUrlParser: true, useUnifiedTopology: true}) // where to find mongodb locally / database 
+            mongoose.connect('mongodb://localhost:27017/movieApp', {useNewUrlParser: true, useUnifiedTopology: true}) // where to find mongodb locally / database
             (if it dosent exist one will be created)
             .then(() => { // try
                 console.log("CONNECTION OPEN!!!")
@@ -516,9 +469,9 @@ sec 37
                                         rating: String
                                         })
 
-                                        // take the schema and tell mongoose to make a 
+                                        // take the schema and tell mongoose to make a
             model using the schema
-                                        const Movie = mongoose.model('Movie', movieSchema) // pass in name of model and the schema, Movie createw a collection 'movies' in mongoose , save it to a variable and save it to a variable Movie  
+                                        const Movie = mongoose.model('Movie', movieSchema) // pass in name of model and the schema, Movie createw a collection 'movies' in mongoose , save it to a variable and save it to a variable Movie
                                         const amadeus = new Movie ({title: 'Amadeus', year: 1986, score: 9.2, rating: 'R'})
             Promise { <pending> }
             > CONNECTION OPEN!!!
@@ -537,7 +490,7 @@ sec 37
             score: 9.2,
             rating: 'R'
             }
-            
+
             // up until this point nothing has been saved to the db
 
             // Saving to mongo database
@@ -565,7 +518,7 @@ sec 37
             open mongodb powershell
             > use movieApp
             switched to db movieApp
-            > db.movies.find()  
+            > db.movies.find()
                 // Result: the objects in the insertMany array in index.js
 
         L382. Finding With Mongoose
@@ -769,7 +722,7 @@ sec 37
 
             // we can add constraint to numbers schema: min: 0
             // then change the new bike price to a - to see what happens: it runs an error and dosent save because of the number validator we set
-            
+
             // in the schema we add : categories : [String]
             then we change the new bike product
                 const bike = new Product({ name: 'Bike Helmet', price:19.50, categories: ['Cycling', 'Safety'] })
@@ -800,7 +753,7 @@ sec 37
                             }
                         }
 
-            // re run project.js 
+            // re run project.js
                 result: we can see the default qty's
                     {
                     qty: { online: 0, instore: 0 },
@@ -889,7 +842,7 @@ sec 37
 
                 ******************* technical difficulties completint this lesson
 
-        390 . Adding Model static methods 
+        390 . Adding Model static methods
 
             ????????????????????????????????????????
 
@@ -921,10 +874,10 @@ sec 38 394. Express + Mongoose Bsic setup
                 copy mongoose connection logic
                 require product
 
-                to see it things are working so far 
+                to see it things are working so far
 
                 > node seeds.js
-                    returns: 
+                    returns:
                         MONGO CONNECTION OPEN!!!
                             {
                             _id: 60ae7b44ef709f21c09b7b67,
@@ -933,7 +886,7 @@ sec 38 394. Express + Mongoose Bsic setup
                             __v: 0
                             }
 
-                mongo> show dbs 
+                mongo> show dbs
                 mongo> use farmStand
                 mongo> show collections
                 mongo> db.products.find()
@@ -966,11 +919,11 @@ sec 38 394. Express + Mongoose Bsic setup
                 install method-override
 
                 ******************** category isint showing up
-                    reason: 
+                    reason:
                         i misspelled category in the product schema in product.js file
 
         400. Tangent On Category Selector
-                
+
                 in edit.ejs i placed conditional statements on the opetion selectors
 
                 in index.js make a array and assign it the value of categories
@@ -1022,9 +975,9 @@ sec39 405 Creating Basic Exprss App
         408. Campground Index
 
                 assuming mongo db is already open
-                to test project 
+                to test project
                 in project dir:
-                nodemon app.js 
+                nodemon app.js
 
         409. Campground Show
 
@@ -1047,7 +1000,7 @@ sec39 405 Creating Basic Exprss App
 
         412. Campground Delete
 
-sec40 
+sec40
 
         415. Using Morgan - Logger Middlewhere
                 it sends information about any route being used to the console
@@ -1062,7 +1015,7 @@ sec40
 
              app.use is a way to run code on every single request
 
-        416. Defining Our Own Middlewhare 
+        416. Defining Our Own Middlewhare
 
         417. More Middleware Practice
 
@@ -1075,22 +1028,21 @@ sec40
                 to test that its working:
                     http://localhost:3000/secret?password=chickennugget
 
-
 sec41 YelpCamp Adding Basic Styles
 
-        421. A New EJS Tool For Layouts 
+        421. A New EJS Tool For Layouts
 
             a solution that works better than partials:
                 npm i ejs-mate
                 require in app.js
            in views dir make layouts dir
-           in layouts dir make boilerplate.ejs 
+           in layouts dir make boilerplate.ejs
 
         422. Bootstrap5! Boilerplate
              add bootstrap 5 css cdn to boilerplate
              added 2 js cdns as well
-             put body in a html element 
-        
+             put body in a html element
+
         423. Navbar Partial
 
             in views make partials dir
@@ -1103,7 +1055,7 @@ sec41 YelpCamp Adding Basic Styles
             in partial dir make footer.ejs
 
         425. Adding Images
-            
+
             update campground Schema
 
         426. Styling Capgrounds Index
@@ -1134,7 +1086,7 @@ sec42 Handling Errors in Express Apps
 sec43 YelpCamp: Errors & Validating Data
 
         439. Client side form validators
-            
+
             bootstrap has its own form validator helpers found in the docs under forms > validation
 
         440. Basic Error Handler
@@ -1162,8 +1114,8 @@ sec43 YelpCamp: Errors & Validating Data
             we did some stuff
 
         443.Defining Error Template
-                
-        444. JOI Schema Validations 
+
+        444. JOI Schema Validations
 
             npm i joi
              require in app.js
@@ -1180,7 +1132,7 @@ sec43 YelpCamp: Errors & Validating Data
             ************** also not sure if i tested correctly with postman
 
 sec44 Data Relationships with mongo
-            
+
         448. SQL Relationships Overview
 
                 basic idea of how SQL works
@@ -1205,7 +1157,7 @@ sec44 Data Relationships with mongo
 
         452. One to 'Bajillions
 
-            with thousands or mor documents, it's more efficent to store a reference to the parent on the child document. 
+            with thousands or mor documents, it's more efficent to store a reference to the parent on the child document.
 
             we can embed documents or we can reference them
 
@@ -1264,7 +1216,7 @@ Section 46: YelpCamp: Adding The Reviews Model
         467. Styling Reviews
 
         468. Deleting Reviews
-            having problems with the redirect . need to check source code at end of section 
+            having problems with the redirect . need to check source code at end of section
             ******* i put Id instead of id in the route
 
         469. Campground delete Middleware
@@ -1336,7 +1288,7 @@ sec 48 Express Session & Flash
 
         482. Intro to flash
 
-             couldnt find starter code, just watched 
+             couldnt find starter code, just watched
 
         481. Res.locals & Flash
 
@@ -1352,7 +1304,7 @@ sec 49: YelpCamp: Restructuring & Flash
             make  route/reviews.js file
             require express and express router
             place review routers in file and
-            export route: 
+            export route:
                 module.exports = router;
 
             require route in app.js:
@@ -1361,7 +1313,7 @@ sec 49: YelpCamp: Restructuring & Flash
             use the route:
                 app.use('/campgrounds/:id/reviews', reviews)
 
-            remove ' campgrounds/:id/reviews ' from the routes in reviews.js 
+            remove ' campgrounds/:id/reviews ' from the routes in reviews.js
 
             copy catchAsync over to reviews wit updated path
 
@@ -1385,7 +1337,7 @@ sec 49: YelpCamp: Restructuring & Flash
                 in public dir make javascripts dir and stylesheets dir
 
                 place validateForms.js in javascripts dir
-                update the src in boilerplate file to  
+                update the src in boilerplate file to
                 /javascripts/validateForms.js
 
                 use and make path absolute in app.js:
@@ -1403,21 +1355,21 @@ sec 49: YelpCamp: Restructuring & Flash
 
                 npm i connect-flash
                 require in app.js
-        
+
             ********* when i make new campground im getting an error,  campground is created but there seems to be a problem with the redirect
 
         489. Flash Success Partial
 
                 in partials touch flash.ejs
 
-        490. Flash Errors Partial  
+        490. Flash Errors Partial
 
 sec50 Authentication From 'Scratch'
 
         491-495  Authentication theory
 
         496. Intro to Bcrypt - password hashing function
-            
+
             in a new folder: npm i bcrypt
             touch index.js, require Bcrypt
 
@@ -1434,7 +1386,7 @@ sec50 Authentication From 'Scratch'
             set up route for form:
                 in views touch register.ejs : to be rendered due to /register route in app.js
                 build out form
-        
+
         498. Auth Demo: Registering
 
                 set up route where register data will submit to:
@@ -1442,7 +1394,7 @@ sec50 Authentication From 'Scratch'
                 require mongoose
                 set up mongo logic code.
                 set it up as routeDemo
-        
+
         499. Auth Demo: Login
 
                 in views make login.ejs file
@@ -1476,7 +1428,7 @@ sec 51: Yelp Camp: Adding In Authentication
 
             in routes dir touch users.js
 
-            in views : mkdir users 
+            in views : mkdir users
                 inside it touch register.ejs
 
         508. Register Route Logic
@@ -1544,7 +1496,7 @@ sec 54: YelpCamp: Image upload
     528. Cloudinary Registration
 
         sign up at : https://cloudinary.com/
-        
+
         my access key and info can be found on the dashbord after i login
 
     529. Environment Variables with dotenv
@@ -1563,7 +1515,7 @@ console.log(process.env.SECRET)
         can define key value pairs in .env file
             can access im ode with process.env.secret
 
-            
+
     530. Uploading To Cloudinary Basics
 
         npm i cloudinary multer-storage-cloudinary
@@ -1575,7 +1527,7 @@ console.log(process.env.SECRET)
 
     532. Displaying Images In A Carousel
 
-    533. Fixing Our Seeds    
+    533. Fixing Our Seeds
 
     534. Adding Upload to edit Page
 
@@ -1589,188 +1541,110 @@ console.log(process.env.SECRET)
     536. A Word Of Warning!
 
     537. Deleting Images Form
-    
+
     538. Deleting Images Backend
         now we are deleting from cloudinary as well as mongodb
-        
+
 539. Adding a thumbnail virtual Property
 
-        cloudinary has a api that allows me to recieve my pictures at smaller ratios to save time 
-        
-        make new imageSchama and replace images in campground schema with its value
-        
-        make a virtual on image schema that replaces url /upload with /upload/w_200 and call it thumbnail
-        
-        in edit set the img src to img.thumbnail as directed by the virtual property
+     cloudinary has a api that allows me to recieve my pictures at smaller ratios to save time
 
-sec 55: YelpCamp: adding Maps
+     make new imageSchama and replace images in campground schema with its value
 
-540. Registering for MapBox
-        
-        sign up for account
-        
-        copy default public token
-            place in .env file under MAPBOX_TOKEN=
-            
-541. Geocoding Our Locations
-    
-        when we create a new campground we are going to take the location and attempt to get lat and lng from it
-        
-        we can install mapbox sdk on node:
-            npm i @mapbox/mapbox-sdk
-            
-        import into controllers/campgrounds.js : 
-            const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
-        bring the .env mapbox token into a variable :
-            const mapBoxToken = process.env.MAPBOX_TOKEN;
-        then we instantiate and call it geocode:
-            mbxGeocoding({ accessToken: mapBoxToken })
-            
-        in createCampground route call:
-            geocoder.forwardGeocode({
-                
-            })
-            
-542. Working with GeoJSON
-         
-         dismayed
+     make a virtual on image schema that replaces url /upload with /upload/w_200 and call it thumbnail
 
-543. Displaying A Map
+     in edit set the img src to img.thumbnail as directed by the virtual property
 
-        on the mapbox GL docs I can download the cdn:
-            https://docs.mapbox.com/mapbox-gl-js/api/
-            
-        copy cnd into layouts/boilerplate file in the head
-        
-        then copy the following code and place it in a script at the end of the show.ejs file in a script tag for now to test.  Include the token from the env file
-            a map should be visible on the page.
-            
-        in public/javascripts touch showPageMap.js
-            remove code from script we just made and place it in showPageMap.js
-        reference that file in the script tag in the boilerplate.
-         
-        in show.ejs we add a script before showPageMap.js script with the mapbox const in it:
-            const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-        reference mapToken in showPageMap.js:
-            mapboxgl.accessToken = mapToken
-            
-544. Centering The Map On A Campground
-    
-        in the mapbox GL docs under examples we can find how to add markers.
-        
-        we add the code for the marker in shiePageMaps.js
+sec 55: YelpCamp: adding Maps540. Registering for MapBox
 
-        at the bottom of show.ejs in the script that contains the map token variable, add campground const:
-            const campground = <%- JSON.stringify(campground) %>
-        add that value to showPageMap.js in the center portion of the display map logic and to the Marker logic in place of the lnt, lat values:
-        
-            center:campground.geometry.coordinates
-            
-            .setLngLat(campground.geometry.coordinates)
-            
-        now when I make a campground and enter a valad location the map is centered with a pin on the location that I entered.
-        
-545. Fixing Our Seeds Bug
+            sign up for account
+            copy default public token place in .env file under MAPBOX_TOKEN=
 
-        earlyer we made a change that made our index.ejs not work .  
-        
-        adding in this if statement fixes it:
-            
-            <% if(campground.images.length) { %> 
-                <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
-            <% } else { %>
-                <img class="img-fluid" alt="" src="https://res.cloudinary.com/dvv0mze8q/image/upload/v1627256903/YelpCamp/hfbsika226msoxflnfsd.jpg">
-            <% } %> 
-            
-        next we update the seeds file to have a default location:
-             geometry: {
-                type: "Point",
-                coordinates: [-113.1331, 47.0202]
-            },
-            
-        make sure user id in seeds matches up with a current user.
-        reseed file:
-            node seeds/index.js
-        
-        reopen server to test.  
-            campgrounds should have default image a default location and a default user
-            
-546. Custimizing Map Popup
+541.  Geocoding Our Locations
 
-        in the marker in showPageMap.js we call a method before add map:
-            
-             .setPopup(
-                new mapboxgl.Popup({offset: 25})
-                .setHTML(
-                    `<h3>${campground.title}</h3><p>${campground.location}</p>`
-                )
-                
-        we can also change the style of the map:
-                    style: 'mapbox://styles/mapbox/light-v10', // style URL
+      when we create a new campground we are going to take the location and attempt to get lat and lng from it
+
+      we can install mapbox sdk on node: npm i @mapbox/mapbox-sdk
+
+      import into controllers/campgrounds.js : const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding"); bring the .env mapbox token into a variable : const mapBoxToken = process.env.MAPBOX_TOKEN; then we instantiate and call it geocode: mbxGeocoding({ accessToken: mapBoxToken })
+
+      in createCampground route call: geocoder.forwardGeocode({
+
+                })
+
+542.  Working with GeoJSON
+
+          dismayed
+
+543.  Displaying A Map
+
+      on the mapbox GL docs I can download the cdn: https://docs.mapbox.com/mapbox-gl-js/api/
+
+      copy cnd into layouts/boilerplate file in the head
+
+      then copy the following code and place it in a script at the end of the show.ejs file in a script tag for now to test. Include the token from the env file a map should be visible on the page.
+
+      in public/javascripts touch showPageMap.js remove code from script we just made and place it in showPageMap.js reference that file in the script tag in the boilerplate.
+
+      in show.ejs we add a script before showPageMap.js script with the mapbox const in it: const mapToken = '<%-process.env.MAPBOX_TOKEN%>'; reference mapToken in showPageMap.js: mapboxgl.accessToken = mapToken
+
+544.  Centering The Map On A Campground
+
+      in the mapbox GL docs under examples we can find how to add markers.
+
+      we add the code for the marker in shiePageMaps.js
+
+      at the bottom of show.ejs in the script that contains the map token variable, add campground const: const campground = <%- JSON.stringify(campground) %> add that value to showPageMap.js in the center portion of the display map logic and to the Marker logic in place of the lnt, lat values:
+
+                center:campground.geometry.coordinates
+
+                .setLngLat(campground.geometry.coordinates)
+
+      now when I make a campground and enter a valad location the map is centered with a pin on the location that I entered.
+
+545.  Fixing Our Seeds Bug
+
+      earlyer we made a change that made our index.ejs not work .
+
+      adding in this if statement fixes it:
+
+                <% if(campground.images.length) { %>
+                    <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
+                <% } else { %>
+                    <img class="img-fluid" alt="" src="https://res.cloudinary.com/dvv0mze8q/image/upload/v1627256903/YelpCamp/hfbsika226msoxflnfsd.jpg">
+                <% } %>
+
+      next we update the seeds file to have a default location: geometry: { type: "Point", coordinates: [-113.1331, 47.0202] },
+
+      make sure user id in seeds matches up with a current user. reseed file: node seeds/index.js
+
+      reopen server to test.  
+       campgrounds should have default image a default location and a default user
+
+546.  Custimizing Map Popup
+
+      in the marker in showPageMap.js we call a method before add map:
+
+                .setPopup(
+                    new mapboxgl.Popup({offset: 25})
+                    .setHTML(
+                        `<h3>${campground.title}</h3><p>${campground.location}</p>`
+                    )
+
+      we can also change the style of the map: style: 'mapbox://styles/mapbox/light-v10', // style URL
 
 sec 56: YelpCamp: Fancy Cluster Map
 
 548. Adding Earthquake Cluster Map
-    
-        start by google searching mapbox cluster:
-            https://docs.mapbox.com/mapbox-gl-js/example/cluster/
-        shows us an example with the code needed to create it below. 
-        
-        add a map div in index.ejs
-        
-        copy everything in the script section of the docs to copy over the structure and place in in clusterMap.js file in javascripts.
-        
-        include a script on the index page that has that file:
-        
-        set up variable for token form .env
-        
 
-        
-        
+     start by google searching mapbox cluster: https://docs.mapbox.com/mapbox-gl-js/example/cluster/ shows us an example with the code needed to create it below.
 
+     add a map div in index.ejs
 
-            
-        
-        
-        
-        
-    
+     copy everything in the script section of the docs to copy over the structure and place in in clusterMap.js file in javascripts.
 
+     include a script on the index page that has that file:
 
+     set up variable for token form .env
 
-
-
-        
-            
-
-
-        
-
-        
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-        
-
-    
-
-
-
-
-
+549. Reseeding Our Database (again)
