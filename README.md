@@ -1661,3 +1661,19 @@ sec 56: YelpCamp: Fancy Cluster Map
 553.  Adding Custom Popups
 
 sec 57 L 554. Styling Home Page
+
+                home.ejs
+
+555.  Additional home page styling
+
+             public/stylesheets/home.css
+
+556.  Styling login form
+
+557.  Styling Register Form
+
+558.  Spacing Campgrounds
+
+559.  Removing Inling Map Styles
+
+560.  Adding Map Controles
