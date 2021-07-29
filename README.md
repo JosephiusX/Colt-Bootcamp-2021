@@ -1717,3 +1717,7 @@ sec58 COMMON SECURITY ISSUES.
 
             now if i try to send a script in the edit form as the title i get a error:
                 campground.title must not include HTML
+
+564.  Minor Changes to Session/Cookies
+
+            we can set the name of the cookie in session config in app.js

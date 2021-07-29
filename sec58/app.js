@@ -47,11 +47,13 @@ app.use(flash()); // use flash
 app.use(mongoSanitize());
 
 const sessionConfig = {
+  name: "session",
   secret: "thisshouldntbeasecret!",
   resave: false,
   saveUnitalized: true,
   cookie: {
-    httpOnly: true,
+    httpOnly: true, // our cookies are only accessable through http
+    // secure: true, // makes it secure, which breaks the cite because its http not https
     expires: Date.now() + 1000 * 60 * 24 * 7,
     maxAge: 1000 * 60 * 24 * 7,
   },
