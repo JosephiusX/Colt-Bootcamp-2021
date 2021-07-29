@@ -12,21 +12,11 @@
         <% }) %>
       </div>
       <% if(campground.images.length > 1) { %>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#campgroundCarousel"
-        data-bs-slide="prev"
-      >
+      <button class="carousel-control-prev" type="button" data-bs-target="#campgroundCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#campgroundCarousel"
-        data-bs-slide="next"
-      >
+      <button class="carousel-control-next" type="button" data-bs-target="#campgroundCarousel" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
@@ -39,23 +29,13 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-muted"><%= campground.location%></li>
-        <li class="list-group-item">
-          Submitted by <%= campground.author.username%>
-        </li>
+        <li class="list-group-item">Submitted by <%= campground.author.username%></li>
         <li class="list-group-item">$<%= campground.price%>/night</li>
       </ul>
       <% if( currentUser && campground.author.equals(currentUser._id)) {%>
       <div class="card-body">
-        <a
-          class="card-link btn btn-info"
-          href="/campgrounds/<%=campground._id%>/edit"
-          >Edit</a
-        >
-        <form
-          class="d-inline"
-          action="/campgrounds/<%=campground._id%>?_method=DELETE"
-          method="POST"
-        >
+        <a class="card-link btn btn-info" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+        <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
           <button class="btn btn-danger">Delete</button>
         </form>
       </div>
@@ -68,12 +48,7 @@
   <div class="col-6">
     <% if(currentUser){ %>
     <h2>Leave a Review</h2>
-    <form
-      action="/campgrounds/<%=campground._id%>/reviews"
-      method="POST"
-      class="mb-3 validated-form"
-      novalidate
-    >
+    <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
       <!-- <div class="mb-3">
                 <label class="form-label" for="rating">Rating</label>
                 <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating">
@@ -101,14 +76,7 @@
       </fieldset>
       <div class="mb-3">
         <label class="form-label" for="body">Review Text</label>
-        <textarea
-          class="form-control"
-          name="review[body]"
-          id="body"
-          cols="30"
-          rows="3"
-          required
-        ></textarea>
+        <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
         <div class="valid-feedback">Looks good!</div>
       </div>
       <button class="btn btn-success">Submit</button>
@@ -117,16 +85,11 @@
     <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title"><%= review.author.username%></h5>
-        <p class="starability-result" data-rating="<%=review.rating%>">
-          Rated: <%= review.rating %> stars
-        </p>
+        <p class="starability-result" data-rating="<%=review.rating%>">Rated: <%= review.rating %> stars</p>
         <!-- <h6 class="card-subtitle mb-2 text-muted">By <%= review.author.username%></h6> -->
         <p class="card-text">Review: <%= review.body %></p>
         <% if( currentUser && review.author.equals(currentUser._id)) {%>
-        <form
-          action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE"
-          method="POST"
-        >
+        <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
           <button class="btn btn-sm btn-danger">Delete</button>
         </form>
         <% } %>
