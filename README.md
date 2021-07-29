@@ -1678,4 +1678,42 @@ sec 57 L 554. Styling Home Page
 
 560.  Adding Map Controles
 
-sec58 l 561. Mongo Injection
+sec58 COMMON SECURITY ISSUES.
+
+561.  Mongo Injection
+
+             What Does SQL Injection Mean?
+             An SQL injection is a computer attack in which malicious code is embedded in a poorly-designed application and then passed to the backend database. The malicious data then produces database query results or actions that should never have been executed.
+
+            http://localhost:3000/?$gt=9
+                // $gt : 9 shows up in the query
+
+             solution for issues like this with Mongo
+                npm i express-mongo-sanitize
+                include:
+                    const mongoSanitize = require('express-mongo-sanitize');
+                use:
+                    app.use(mongoSanitize())
+
+                now if we try the same request as above our query string shows up empty
+
+                Techopedia Explain
+
+562.  Cross Site Scripting(XSS)
+
+563.  Sanitizing HTML w/JOI
+
+            currently if i place:
+                Grizzly Hunting Camp <script>alert('haha')</script>
+
+            edit form it sends a prompt when that form is submitted. this is not cool
+
+            package for sanitizing html input
+            npm i sanitize-html
+            const sanitizeHtml = require("sanitize-html");
+
+
+            added .escapeHtml logic to joy
+
+            now if i try to send a script in the edit form as the title i get a error:
+                campground.title must not include HTML
