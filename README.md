@@ -1721,3 +1721,13 @@ sec58 COMMON SECURITY ISSUES.
 564.  Minor Changes to Session/Cookies
 
             we can set the name of the cookie in session config in app.js
+
+565.  Hiding Errors
+
+            if i use letters instead of a number in the edit form I get a validation error which is a bad user experience as well as giving out 2 much information from a security stanpoint
+
+            i do some stuff in error.ejs
+
+            dont display error stack outside development
+
+
