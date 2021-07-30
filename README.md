@@ -1739,3 +1739,8 @@ sec58 COMMON SECURITY ISSUES.
 
             npm i helmet
             then require
+            then use it
+
+567.  Content Security Policy Fun
+
+            helmet is about designatin where data such as images or videos can come from. theyre called directives in the docs

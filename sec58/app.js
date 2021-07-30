@@ -1,14 +1,12 @@
-// if (process.env.NODE_ENV !== "production") {
-//   require("dotenv").config();
-// }
-
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const ejsMate = require("ejs-mate"); // require after npm install
-const session = require("express-session"); // npm package
+const ejsMate = require("ejs-mate");
+const session = require("express-session");
 const flash = require("connect-flash");
 const ExpressError = require("./utils/ExpressError");
 const methodOverride = require("method-override");
@@ -38,33 +36,79 @@ db.once("open", () => {
 
 const app = express();
 
-app.engine("ejs", ejsMate); // tell express to use ejsMate
+app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-
-app.use(express.static(path.join(__dirname, "public"))); // tells express to serv public directory, setting path to be absolute
-app.use(flash()); // use flash
-app.use(helmet({ contentSecurityPolicy: false })); // use helmet
-app.use(mongoSanitize());
+app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  mongoSanitize({
+    replaceWith: "_",
+  })
+);
 
 const sessionConfig = {
   name: "session",
-  secret: "thisshouldntbeasecret!",
+  secret: "thisshouldbeabettersecret!",
   resave: false,
-  saveUnitalized: true,
+  saveUninitialized: true,
   cookie: {
-    httpOnly: true, // our cookies are only accessable through http
-    // secure: true, // makes it secure, which breaks the cite because its http not https
-    expires: Date.now() + 1000 * 60 * 24 * 7,
-    maxAge: 1000 * 60 * 24 * 7,
+    httpOnly: true,
+    // secure: true,
+    expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+    maxAge: 1000 * 60 * 60 * 24 * 7,
   },
 };
 
 app.use(session(sessionConfig));
 app.use(flash());
+app.use(helmet());
+
+const scriptSrcUrls = [
+  "https://stackpath.bootstrapcdn.com/",
+  "https://api.tiles.mapbox.com/",
+  "https://api.mapbox.com/",
+  "https://kit.fontawesome.com/",
+  "https://cdnjs.cloudflare.com/",
+  "https://cdn.jsdelivr.net",
+];
+const styleSrcUrls = [
+  "https://kit-free.fontawesome.com/",
+  "https://stackpath.bootstrapcdn.com/",
+  "https://api.mapbox.com/",
+  "https://api.tiles.mapbox.com/",
+  "https://fonts.googleapis.com/",
+  "https://use.fontawesome.com/",
+];
+const connectSrcUrls = [
+  "https://api.mapbox.com/",
+  "https://a.tiles.mapbox.com/",
+  "https://b.tiles.mapbox.com/",
+  "https://events.mapbox.com/",
+];
+const fontSrcUrls = [];
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: [],
+      connectSrc: ["'self'", ...connectSrcUrls],
+      scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+      styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+      workerSrc: ["'self'", "blob:"],
+      objectSrc: [],
+      imgSrc: [
+        "'self'",
+        "blob:",
+        "data:",
+        "https://res.cloudinary.com/dvv0mze8q/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT!
+        "https://images.unsplash.com/",
+      ],
+      fontSrc: ["'self'", ...fontSrcUrls],
+    },
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -74,18 +118,11 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-  console.log(req.query);
   res.locals.currentUser = req.user;
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   next();
 });
-
-// app.get('/fakeUser', async (req, res) => {
-//     const user = new User({email: 'colttt@gmail.com', username: 'coltt'})
-//     const newUser = await User.register(user, 'chicken');
-//     res.send(newUser);
-// })
 
 app.use("/", userRoutes);
 app.use("/campgrounds", campgroundRoutes);
@@ -96,13 +133,11 @@ app.get("/", (req, res) => {
 });
 
 app.all("*", (req, res, next) => {
-  // every request, will only run if nothing else is matched first , thus is best at the end
   next(new ExpressError("Page Not Found", 404));
 });
 
 app.use((err, req, res, next) => {
-  // basic error route
-  const { statusCode = 500, message = "something went wrong" } = err;
+  const { statusCode = 500 } = err;
   if (!err.message) err.message = "Oh No, Something Went Wrong!";
   res.status(statusCode).render("error", { err });
 });
@@ -110,7 +145,3 @@ app.use((err, req, res, next) => {
 app.listen(3000, () => {
   console.log("Serving on port 3000");
 });
-
-{
-  ///alsiudhfluhf
-}
