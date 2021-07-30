@@ -1744,3 +1744,6 @@ sec58 COMMON SECURITY ISSUES.
 567.  Content Security Policy Fun
 
             helmet is about designatin where data such as images or videos can come from. theyre called directives in the docs
+
+            ??????????? bootstrap broken
+            ***********   'https://cdn.jsdelivr.net/' // adding this to the styleUrl in helmet  helped my bootstrap to be regegonized

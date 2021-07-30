@@ -72,7 +72,7 @@ const scriptSrcUrls = [
   "https://api.mapbox.com/",
   "https://kit.fontawesome.com/",
   "https://cdnjs.cloudflare.com/",
-  "https://cdn.jsdelivr.net",
+  "https://cdn.jsdelivr.net/",
 ];
 const styleSrcUrls = [
   "https://kit-free.fontawesome.com/",
@@ -81,6 +81,7 @@ const styleSrcUrls = [
   "https://api.tiles.mapbox.com/",
   "https://fonts.googleapis.com/",
   "https://use.fontawesome.com/",
+  "https://cdn.jsdelivr.net/", // adding this helped my bootstrap to be regegonized
 ];
 const connectSrcUrls = [
   "https://api.mapbox.com/",
