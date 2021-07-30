@@ -1747,3 +1747,5 @@ sec58 COMMON SECURITY ISSUES.
 
             ??????????? bootstrap broken
             ***********   'https://cdn.jsdelivr.net/' // adding this to the styleUrl in helmet  helped my bootstrap to be regegonized
+
+sec59. YelpCamp: Deploying
