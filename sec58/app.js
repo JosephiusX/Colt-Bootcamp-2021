@@ -15,6 +15,7 @@ const methodOverride = require("method-override");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
+const helmet = require("helmet");
 
 const mongoSanitize = require("express-mongo-sanitize");
 
@@ -46,6 +47,7 @@ app.use(methodOverride("_method"));
 
 app.use(express.static(path.join(__dirname, "public"))); // tells express to serv public directory, setting path to be absolute
 app.use(flash()); // use flash
+app.use(helmet({ contentSecurityPolicy: false })); // use helmet
 app.use(mongoSanitize());
 
 const sessionConfig = {
