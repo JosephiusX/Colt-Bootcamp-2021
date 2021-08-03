@@ -1749,3 +1749,21 @@ sec58 COMMON SECURITY ISSUES.
             ***********   'https://cdn.jsdelivr.net/' // adding this to the styleUrl in helmet  helped my bootstrap to be regegonized
 
 sec59. YelpCamp: Deploying
+
+            568. Setting Up Mongo Atlas
+
+            569. Using Mongo For Our Session Store
+
+                npm i connect-mongo@3.2.0
+                    require then immidietly execute
+
+            570. Heroku Setup
+
+                sign up for heroku
+                download comandline tools
+
+                signin using the command line:
+                    heroku login
+                        a window will open in a browser with a prompt to sign in
+
+                should say logged in and my email
